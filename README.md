@@ -94,12 +94,18 @@ These are the current Risks on the project, re-aligned on a weekly basis
 # Tenants of Design
 Update the below to add what the group is using <<>>
 - Dedication to clean, secure, performant and self documented code
-  - code Frameworks used <<>>
-  - programming using the IDE << >>
-  - code coverage tool used <<>>
+  - code Frameworks used <<
+    Front-End: React
+    Back-End: Node JS
+    DB: Dynamo DB
+    Containerization: Docker
+    Orchestration: K8s
+    >>
+  - programming using the IDE << VS Code >>
+  - code coverage tool used << VS Code >>
   - Secure code:  <<>>
-  - performance testing tool to be used <<>>
-- Documentation / code commenting <<>>
+  - performance testing tool to be used << CloudWatch >>
+- Documentation / code commenting << Confluence >>
 - Datastore for persistance <<>>
  
 # Security:
@@ -118,7 +124,9 @@ Update the below to add what the group is using <<>>
 - integrated and automated pipeline (commit -> test -> deploy) <<>>
 
 # Github version control:
-- branches used <<>>
+- branches used <<
+    Main
+    >>
 - version/release management <<>>
 
 # Agile project management methods/principles (jira)
