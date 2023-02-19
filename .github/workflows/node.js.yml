@@ -27,6 +27,36 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
    # - run: npm test --passWithNoTests
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    
+      
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run:   
+              echo "<dependency>" >> pom.xml
+              echo "  <groupId>org.seleniumhq.selenium</groupId>" >> pom.xml
+              echo "  <artifactId>selenium-java</artifactId>" >> pom.xml
+              echo "  <version>4.5.3</version>" >> pom.xml
+              echo "</dependency>" >> pom.xml
+              echo "" >> pom.xml
+
+
+      - name: Test code
+        run: |
+          # Add command to run the Selenium test script    
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    if: success()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        run: |docker build . --Docker --l00171222/shibil_movie_course_website:$(date +%s)
+          # Add Docker build and push commands here
+          # Use environment variables to access the repository credentials
