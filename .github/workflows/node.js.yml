@@ -58,5 +58,5 @@ jobs:
 
       - name: Build and push Docker image
         run: |docker build . --Docker --l00171222/shibil_movie_course_website:$(date +%s)
-          # Add Docker build and push commands here
+             docker image push [OPTIONS] NAME[:TAG]
           # Use environment variables to access the repository credentials
