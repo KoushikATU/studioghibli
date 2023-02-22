@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const registerUrl = 'https://3y1aczstgg.execute-api.us-east-1.amazonaws.com/prod/register';
+const registerUrl = 'https://lxfsrxntnf.execute-api.us-east-1.amazonaws.com/prod/register';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -27,7 +27,7 @@ const Register = () => {
 
     const requestConfig = {
       headers: {
-        'x-api-key': 'iyO28j4UFf1oqazrpQAJF7iw9QQnrN4U1V4xXPUO'
+        'x-api-key': 'mzW9uosG9F1ZZ3uXEo9Vn5Yxxc9tTTo08UwzVecx'
       }
     }
     axios.post(registerUrl, requestBody,requestConfig).then(response => {

@@ -9,7 +9,7 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, setUserSession, resetUserSession } from "./service/AuthService";
 import axios from "axios";
 
-const verifyTokenAPIURL = 'https://3y1aczstgg.execute-api.us-east-1.amazonaws.com/prod/verify';
+const verifyTokenAPIURL = 'https://lxfsrxntnf.execute-api.us-east-1.amazonaws.com/prod/verify';
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
 
     const requestConfig = {
       headers: {
-        'x-api-key': 'iyO28j4UFf1oqazrpQAJF7iw9QQnrN4U1V4xXPUO'
+        'x-api-key': 'mzW9uosG9F1ZZ3uXEo9Vn5Yxxc9tTTo08UwzVecx'
       }
     }
     const requestBody = {

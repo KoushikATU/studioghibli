@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { setUserSession } from './service/AuthService'
-const loginAPIUrl = 'https://3y1aczstgg.execute-api.us-east-1.amazonaws.com/prod/login';
+const loginAPIUrl = 'https://lxfsrxntnf.execute-api.us-east-1.amazonaws.com/prod/login';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
@@ -23,7 +23,7 @@ const Login = (props) => {
 
     const requestConfig = {
       headers: {
-        'x-api-key': 'iyO28j4UFf1oqazrpQAJF7iw9QQnrN4U1V4xXPUO'
+        'x-api-key': 'mzW9uosG9F1ZZ3uXEo9Vn5Yxxc9tTTo08UwzVecx'
       }
     }
 
