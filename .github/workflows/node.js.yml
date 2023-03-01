@@ -5,7 +5,7 @@ name: React Build
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ L00170995_build ]
 
 jobs:
   deploy:
