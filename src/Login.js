@@ -21,7 +21,13 @@ const Login = (props) => {
       password: password
     }
 
-    axios.post(loginAPIUrl, requestBody).then((response) => {
+    const requestConfig = {
+      headers: {
+        'x-api-key': 'iyO28j4UFf1oqazrpQAJF7iw9QQnrN4U1V4xXPUO'
+      }
+    }
+
+    axios.post(loginAPIUrl, requestBody, requestConfig).then((response) => {
       setUserSession(response.data.user, response.data.token);
       props.history.push('/premium-content');
     }).catch((error) => {
