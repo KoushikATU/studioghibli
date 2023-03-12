@@ -43,13 +43,43 @@ jobs:
       run: npm run build
     
     - name: Docker Login
-      run: docker login -u koushikhathwar -p atlantic@1234
+      uses: azure/docker-login@v1
       
-    - name: Docker Build
-      run: docker build -t ghiblis:v1 --force-rm .
+    - name: Azure Container Registry Build
+      uses: Azure/acr-build@v1
+      with:
+    # Service Principal with Contributor role on the ACR
+        service_principal: studioghibil
+    # Service Principal password
+        service_principal_password: sqvNdsOL5k1kJXsm6Xaa5ty8mwS81A0PdOSIu1whZx+ACRAwXISI
+    # Azure Container Registry tenant
+        tenant: 47855545-00bb-4800-a65f-e79104ec0fc4
+    # The name of the ACR, minus the .azurecr.io
+        registry: studioghibil
+    # Repository to use
+        repository: ghiblisstudio
+    # Github access token for private repositories
+       ## git_access_token: 
+    # Docker image name
+        image: koushikhathwar/ghiblis:v1
+    # Docker image tag, default to the commit SHA
+        #tag: # optional
+    # Branch to build from, defaults to master
+       # branch: # optional
+    # The folder in the Github repo that holds the source
+        #folder: 
+    # The location of the Dockerfile; defaults to ./Dockerfile
+        #dockerfile: # optional
+    # JSON specifying key=value pairs as as Docker build arguments
+        #build_args: # optional
       
-    - name: Docker tag
-      run: docker tag ghiblis:v1 koushikhathwar/ghiblis:v1
+     # run: docker login -u koushikhathwar -p atlantic@1234
       
-    - name: Docker push
-      run: docker push koushikhathwar/ghiblis:v1
+    #- name: Docker Build
+      #run: docker build -t ghiblis:v1 --force-rm .
+      
+   # - name: Docker tag
+     # run: docker tag ghiblis:v1 koushikhathwar/ghiblis:v1
+      
+    #- name: Docker push
+      #run: docker push koushikhathwar/ghiblis:v1
