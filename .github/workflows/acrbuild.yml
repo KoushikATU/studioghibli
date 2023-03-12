@@ -42,36 +42,18 @@ jobs:
     - name: Build React
       run: npm run build
     
-    #- name: Docker Login
+    #- name: ACR Login
      # uses: azure/docker-login@v1
-      
-    - name: Azure Container Registry Build
-      uses: Azure/acr-build@v1
+    - name: ACR Login
+      uses: azure/docker-login@v1
       with:
-    # Service Principal with Contributor role on the ACR
-        service_principal: studioghibil
-    # Service Principal password
-        service_principal_password: sqvNdsOL5k1kJXsm6Xaa5ty8mwS81A0PdOSIu1whZx+ACRAwXISI
-    # Azure Container Registry tenant
-        tenant: 47855545-00bb-4800-a65f-e79104ec0fc4
-    # The name of the ACR, minus the .azurecr.io
-        registry: studioghibil
-    # Repository to use
-        repository: ghiblisstudio
-    # Github access token for private repositories
-       ## git_access_token: 
-    # Docker image name
-        image: koushikhathwar/ghiblis:v1
-    # Docker image tag, default to the commit SHA
-        #tag: # optional
-    # Branch to build from, defaults to master
-       # branch: # optional
-    # The folder in the Github repo that holds the source
-        #folder: 
-    # The location of the Dockerfile; defaults to ./Dockerfile
-        #dockerfile: # optional
-    # JSON specifying key=value pairs as as Docker build arguments
-        #build_args: # optional
+        login-server: studioghibil.azurecr.io
+        username: studioghibil
+        password: sqvNdsOL5k1kJXsm6Xaa5ty8mwS81A0PdOSIu1whZx+ACRAwXISI
+
+    - run: |
+          docker build . -t yourACRname.azurecr.io/appdb:${{ github.sha }}
+          docker push yourACRname.azurecr.io/appdb:${{ github.sha }}
       
      # run: docker login -u koushikhathwar -p atlantic@1234
       
