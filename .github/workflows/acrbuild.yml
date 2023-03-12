@@ -1,4 +1,4 @@
-name: React Image
+name: ACR Image
 on:
   release:
     types: [created]
