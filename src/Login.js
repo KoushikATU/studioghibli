@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+
 import { setUserSession } from './service/AuthService'
 const loginAPIUrl = 'https://lxfsrxntnf.execute-api.us-east-1.amazonaws.com/prod/login';
 
@@ -43,9 +44,15 @@ const Login = (props) => {
     <div>
       <form onSubmit={submitHandler}>
         <h5>Login</h5>
-        username: <input type="text" value={username} onChange={event => setUsername(event.target.value)} /> <br/>
-        password: <input type="password" value={password} onChange={event => setPassword(event.target.value)} /> <br/>
-        <input type="submit" value="Login" />
+        Username: <input type="text" value={username} onChange={event => setUsername(event.target.value)} /> <br/>
+        Password: <input type="password" value={password} onChange={event => setPassword(event.target.value)} /> <br/>
+        Select Course:
+      <select id="course" name="course">
+        <option value="Moving Castle Creations">Moving Castle Creations</option>
+      </select> <br/>
+      Extra Requests:
+      <textarea id="requests" name="requests"></textarea> <br/>
+        <input  type="submit" value="Login" /> <br/>
       </form>
       {errorMessage && <p className="message">{errorMessage}</p>}
     </div>

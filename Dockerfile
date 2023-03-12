@@ -1,6 +1,7 @@
-FROM mhart/alpine-node:14
-WORKDIR '/app'
+FROM node:16.14.0
+WORKDIR /app
 COPY package.json .
+COPY package-lock.json .
 RUN node --version
 RUN npm install
 COPY . .
