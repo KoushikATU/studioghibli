@@ -29,3 +29,10 @@ jobs:
       uses: actions/setup-node@v3.5.1
       with:
         node-version: 18.11.0
+        
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Install react 
+      run: npm ci
+    
