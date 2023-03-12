@@ -42,3 +42,14 @@ jobs:
     - name: Build React
       run: npm run build
     
+    - name: Docker Login
+      run: docker login -u koushikhathwar -p atlantic@1234
+      
+    - name: Docker Build
+      run: docker build -t ghiblis:v1 --force-rm .
+      
+    - name: Docker tag
+      run: docker tag ghiblis:v1 koushikhathwar/ghiblis:v1
+      
+    - name: Docker push
+      run: docker push koushikhathwar/ghiblis:v1
