@@ -18,7 +18,7 @@ on:
         - main
 jobs:
   build:
-    runs-on: ubantu-latest
+    runs-on: ubuntu-latest
     name: build react image 
     defaults:
       run:
