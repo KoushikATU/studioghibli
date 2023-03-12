@@ -51,9 +51,10 @@ jobs:
         username: studioghibil
         password: sqvNdsOL5k1kJXsm6Xaa5ty8mwS81A0PdOSIu1whZx+ACRAwXISI
 
-    - run: |
-          docker build . -t yourACRname.azurecr.io/appdb:${{ github.sha }}
-          docker push yourACRname.azurecr.io/appdb:${{ github.sha }}
+    - name: ACR Build
+      run: |
+          docker build . -t studioghibil.azurecr.io/ghiblis:v1
+          docker push studioghibil.azurecr.io/ghiblis:v1
       
      # run: docker login -u koushikhathwar -p atlantic@1234
       
