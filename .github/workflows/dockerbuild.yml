@@ -38,4 +38,7 @@ jobs:
       
     - name: Install react package
       run: npm ci
+      
+    - name: Build React
+      run: npm run build
     
