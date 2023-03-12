@@ -22,7 +22,7 @@ jobs:
     name: build react image 
     defaults:
       run:
-        working-directory: Group1_GhiblisMovie
+        working-directory: .
     
     steps:
     - name: setup Node.js environment
@@ -32,6 +32,9 @@ jobs:
         
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: List Files
+      run: find .
       
     - name: Install react package
       run: npm ci
