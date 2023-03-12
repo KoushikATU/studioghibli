@@ -10,9 +10,22 @@ on:
         required: true
       branch:
         description: Branch to trigger build on
-        default: develop
+        default: main
         required: true
         type: choice
         options:
         - develop
         - main
+jobs:
+  build:
+    runs-on: ubantu-latest
+    name: build react image 
+    defaults:
+      run:
+        working-directory: Group1_GhiblisMovie
+    
+    steps:
+    - name: setup Node.js environment
+      uses: actions/setup-node@v3.5.1
+      with:
+        node-version: 18.11.0
