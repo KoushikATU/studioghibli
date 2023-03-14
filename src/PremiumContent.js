@@ -28,14 +28,7 @@ const PremiumContent = (props) => {
     <div>
       Hello {name}! You have been loggined in!!!! Welcome to the premium content. <br />
       
-      {
-        // data.length > 0 &&
-        // data.map((item, index)=>{
-        //   return (
-        //     <span>{}</span>
-        //   )
-        // })
-      }
+      
       <input type="button" value="Logout" onClick={logoutHandler} />
     </div>
   )
