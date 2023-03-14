@@ -1,0 +1,55 @@
+name: ACR Image
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Bump Version
+        default: v1.0.0
+        required: true
+      branch:
+        description: Branch to trigger build on
+        default: main
+        required: true
+        type: choice
+        options:
+        - develop
+        - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: build react image 
+    defaults:
+      run:
+        working-directory: .
+    
+    steps:
+    - name: setup Node.js environment
+      uses: actions/setup-node@v3.5.1
+      with:
+        node-version: 14.16.1
+        
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: List Files
+      run: find .
+      
+    - name: Install react package
+      run: npm ci
+      
+    - name: Build React
+      run: npm run build
+    
+    - name: Docker Login
+      run: docker login -u koushikhathwar -p atlantic@1234
+      
+    - name: Docker Build
+      run: docker build -t ghiblis:v1 --force-rm .
+      
+    - name: Docker tag
+      run: docker tag ghiblis:v1 koushikhathwar/ghiblis:v1
+      
+    - name: Docker push
+      run: docker push koushikhathwar/ghiblis:v1
