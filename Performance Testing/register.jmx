@@ -1,0 +1,2635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">4</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">4</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-4" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Ffe9030c0-40eb-4e19-a251-ff7f523e2d58.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-1" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fd48af0f2-9f29-4263-bd72-de57eaa29e17.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-6" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fe7613bb6-fad8-4a15-a520-e65e62df9d85.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-5" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fcf3c67a6-8003-4b68-89a9-d95b66ded063.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-3" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2F11b4bf4e-f145-4c9e-abad-1756e89c765f.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-2" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2F77ea2415-57a8-404d-8313-52c8cc6340fb.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-8" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2F168e63b4-3ce9-4990-8cfe-f2f3645925e2.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-9" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fb0c3b178-ee57-465b-aa8c-fb6f93e35cab.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/direct-7" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="url" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">url</stringProp>
+                <stringProp name="Argument.value">https%3A%2F%2Fs3.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fd3522243-5d97-4af8-b226-ab57b3bee6ce.jpeg</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="resize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">resize</stringProp>
+                <stringProp name="Argument.value">w450</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">img-getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/direct</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">null</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">image/avif,image/webp,*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">image</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/canonical.html-10" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">detectportal.firefox.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/canonical.html</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/success.txt-11" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="ipv4" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">ipv4</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">detectportal.firefox.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/success.txt</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/success.txt-12" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="ipv6" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">ipv6</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">detectportal.firefox.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/success.txt</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/v3/firefox/global-recs-13" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="version" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">version</stringProp>
+                <stringProp name="Argument.value">3</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="consumer_key" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">consumer_key</stringProp>
+                <stringProp name="Argument.value">40249-e88c401e1b1f2242d9e441c4</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="locale_lang" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">locale_lang</stringProp>
+                <stringProp name="Argument.value">en-US</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="region" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">region</stringProp>
+                <stringProp name="Argument.value">IN</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="count" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">count</stringProp>
+                <stringProp name="Argument.value">30</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">getpocket.cdn.mozilla.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v3/firefox/global-recs</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/v1/-14" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">firefox.settings.services.mozilla.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v1/</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/9cd6cd91-c449-462a-afc7-81cf719e135c-15" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;����n�6&#x10;��E��&#x18;�$��o��nы�&#x10;F��a#�Z�rb&#x4;~�&#xe;m%q�I.&#x16;&#xb;&#x8;HD��|&#x1c;�&#x19;?&#x17;�u��:��s&#x11;�{���]&#x11;&#x13;�4${�bW���@��|&#x13;�N4�	�&#x13;��+��Ob�ט@&#x18;��&#x8;G�	�!R�ֻ���&#xd;
+O3&#x5;Vp)���0���q&#x2;}_x&#x15;��&amp;�$8�&#x3;��/!�d&#x0;&#x13;�����&#x18;&#x3;:u��ʻ��&#x17;�&#x14;0�Ӝٜ=�K|��p��s��5�c��F7[����Z�&#xe;Pw#�b+�mY6MO��|W���&#x1b;�&#x10;�%&#x10;(���B$&gt;n��0ނ��P��&#x18;&#x14;5T�����&#x12;&#x18;�&#x4;i*ٶ�H�X����&#x7f;.&#x1c;�&#x12;&#x18;&#x1b;��&apos;�&#x8;�&#xc;.S&#x2;ƃ{tz�&#x0;���u�?2�&#xf;�Ň%Rx�&#x87;�_0S�S�6&#x1d;�&#x1d;&quot;3W&#x12;��&#x1a;P�%��&#x19;�����4p�&#x1a;&apos;8F�^X_�&#x12;�t��2�5&#x19;#�&#x1e;�V&#x1a;��&#x18;a,��N�VP/Mc�ϑ2��,���&#x7f;��&#xe;��i��a&#x18;&#x17;;�4[��6%&#xb;]&#x16;&#x6;�)�ɾ&#x15; $?�.���k����4�Ž&#x4;�;J&#x10;=H��vW嘗�9C�k�&#x4;7&#x0;�^@ݶ&#xd;
+&#x10;�&#x11;LY�T\�&#x16;s&#x1d;0�{�H��㯞�fhr�x�N����/�Ño�^\&apos;�&amp;g�y&#x1e;&#x14;����&#x17;&#x3;�&#x13;#��/��&#x16;f�V�R�պ�m�&apos;&lt;�*fɍ,�|�VV]��,�$��D{T��k%7��d��5�-�k�k�&#x3;V�`��R�0dj�u#˺}��&#xe;�M6��{&#x1a;&#x14;�s��)7��q�&lt;D&quot;��l�������x��~&quot;&#x18;!����g&#x3;�E&#x8;���&#x7f;2s�GN�N���u�}�����\_��g�&#x1e;(�\7w),�&#x1d;���&#x17;&#x19;&#x7f;\_�_A�m�Rq�.�@z��&#x7;Kq�L�-�c%&#x1b;�h���-�&#x1a;�&quot;eO��:��f?�d�_��\�&#x4;w��a���&#x1c;x��~&amp;G�֪k���Y��{V���!+���B͍&#x6;��+ �Vɮ+��&gt;�{�)��*�&lt;�vk.F{&#x7;$����IM&gt;�&quot;�����&#x7f;&#x6;Y6�*&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/9cd6cd91-c449-462a-afc7-81cf719e135c</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:07:16 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/activity-stream/sessions/1/75b7ad3b-4223-416f-958a-0a07e7f7927a-16" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;&#xd;
+}Rˎ�0&#xc;�&#x17;�ͅe;~�7��&#x5;٢&#x12;�����l&#x10;��K%)v��=�&#x1c;��ù1|�0�&#x15;]��xc&#x11;&#x13;h&#x13;P�w�&#x11;&#x14;j�m�Mi8K�,&#x6;�&#xe;.�)&#x7f;��}&#x0;�&#x17;�&#x11;C���9&#x15;�9H��ّ��2&#x15;vv�&#x18;���!�䀰�o�0���?�z%-�&#x11;��_��Î��fͺ���8&#x1d;�O.�&gt;X�o���!�� &#x13;���_�&#x16;�&#x12;�ٝx�&apos;��f���&#xf;V��v5�Q����~�T&#xb;hQF&#x14;&#xb;���R�U��T�;�1��M[7��&apos;^w-&#x1;�{b#��&#x2;�8Tt�X��(��&amp;&#x1c;&#xf;��=&#x1c;t���0���i�&apos;��Ä}{&apos;�M��L9ӎG�&#xd;
+��&gt;�T&#xe;2=&#x4;t�m:�c�ei�&#x12;)�ӉT��V8�+�X&#x12;*b0��+0z&#x1e;S�X��h&#x12;Fa�*&#x11;�|�g�1�U�% �x�tܚ$|}&amp;�mW&quot;`Ǟ�3��A&#x8e;�b�&#xb;�&gt;֨�&gt;�&#xc;�����j&#x11;e�Qb&#xd;i����]�pLb���&#xe;�ty?��84&#x7;ތ��n���5�*p�p���_�c�&#xf;C��=�&#x7;^�&#x1c;�6��]2��W&amp;R�&apos;��bM�|���n�A�&#x14;�IA��	d�� UǕ�5�N��_�&#x5ce;�&#x3;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/activity-stream/sessions/1/75b7ad3b-4223-416f-958a-0a07e7f7927a</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Date" elementType="Header">
+                <stringProp name="Header.name">Date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:22:05 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Encoding" elementType="Header">
+                <stringProp name="Header.name">Content-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/activity-stream/impression-stats/1/a0617d60-85db-4de4-8283-1c8f5a5c5cce-17" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;&#xd;
+}�O�� &#x10;ſ&#xb;��&#xd;
+�&#x17;�Vu��&#x5ed;z��&#x8;�C�&#x16;C&#xd;
+8�U���qk��G����̀&#x1f;&#xc;_���&#x1;m&#xc;��`&#x1;#�ޣv��&#x2;t��h&quot;\;&#xd;&#x17;e;�&#x1e;��{o;w&#xf;��&#x7;�w&#x18;&#x3;�&#x0;�&#x19;��8۴^��&#x1d;Y����Φ&#x3;#���Dd�&#x8;g��&#x1c;ڹ��90�N&#x19;�&#x5;��]&gt;��o��^o?\���[���8�%&#x1f;&#xc;�&#x17;&#x9b;&#x1b;}@�AE��&#x1;&#x13;�����l&quot;&#x1f;�((�&#x19;Z���&#x1d;؍f�%&quot;&#x4;&#x7f;�O��G�*��LK�h��&#x10;���s���+�Yγ�&#x16;��EN�y{�+�n��5�I��&#xf;T-�=�~il�&#x5;J|���&#xf;/ϟ^&gt;?&#x13;��A���`}ǎ��+�P�#&amp;��F�^h��U^-��h��&#xb;�&#x13;�j�&#x1d;�ʕ�;*���jGK�&#x17;Z&apos;&#xe;r�r�W��6I�U+��r���2[q��l&#xb;�ϗW劋&#x4;o�21ټ�&#x4;���~Ɗ&#x17;+��z]�h�[��O����:�R&amp;��i�a~G�Y�&#x1e;-ו�+&#xd;�,&#x11;&#xd;
+Qhh�~�F��&#x5;*Y7&#x13;��&#x0;sz��&#x3;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/activity-stream/impression-stats/1/a0617d60-85db-4de4-8283-1c8f5a5c5cce</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Date" elementType="Header">
+                <stringProp name="Header.name">Date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:22:05 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Content-Encoding" elementType="Header">
+                <stringProp name="Header.name">Content-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/6a9f6901-bcfa-46d7-ac60-6ed17d889eff-18" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;�uQ�n� &#x10;�&#x17;^Ol��ر&#x7f;��#°vP	�,i&#x1b;U��.έ�EB�z���Y&gt;�l�$�&#x1f;&#x3;�?&#x18;�&#xb;�E�b�TL2�=��U�Z&#x17;��x�۾���眭&#x18;x��&lt;��͍&#x13;Aa���a?&#x7;&#xf;&gt;��M�b�����&lt;��=�x�h��p��P�F�۲bwv&#x6;��&#x8;�MU���Eݶ�P�&#x1e;���@�f0�&#x1a;�eѐF�&lt;��ZN&#x11;�&#x14;y6:�!G&#x1b;1�x�W2ũ&#xd;
+�&#x15;��l�u樨w6�N��&#x19;��F6u��Y��&#x1e;&#x1c;��B(&#x4;�&#x3;�W�h����|��~�ބ7��^s�&#x5;�i+:�����X��:~&#x15;�J���˻�&#x1a;�w��O����P����c�/&#x1e;���&#x5;߅=�j&#x2;�)�&#x14;�q������Ο�(�:�@	}���~�T&quot;=+�&#x8;Fb&#xd;
+�&#x2;�+�O�&#x0;7Y�����e&#xd;
+3�Z�O�.��q��&#x1d;�(�N��,�:*�p:�&gt;&#x1;w�&#x7f;��&#x2;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/6a9f6901-bcfa-46d7-ac60-6ed17d889eff</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:07:18 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/baseline/1/401b1566-6620-465e-b775-ed9d9f5135bc-19" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��T�n�:&#x10;�&#x17;moF )Y&#xf;���&#x7;�R&#x18;�C��L�$��&#x8;��&#x1d;�N�4]��&#x0;�1�s�p&#xe;_����༝��k&#x11;�G��&#x1e;��0�!�&#x13;&#x15;�B	U��O&gt;�f��&#x7f;B�(&#x1e;&#xd;
+��KL�(ڽh�c&#x2;a�=G�N�L���B�O�&#x14;3�;-sH�&#xc;&#x2;�Xy&#x15;�&lt;M���O&#x4;�y&#xd;�&amp;&#xb;��8g��b&#xc;���s��&apos;�ޒ��y/]��ǻӸƷT&#x1b;�&lt;Ψ��̦�&#x19;k�&#x1d;�;�A-L&#x7;h�&#x11;z���N������xv���p�&#xd;Np��p�M�&#x1a;�t��&apos;q�)c�x��7�&amp;kE߃�I&#xb;�&#x16;#�JK�&#xc;�&#x4;��6���+��6J���#X�Z&#x3;��k�&#x7f;��&#x19;�H#kc-�&#x1a;*�TPWJ&#x1;��@�J�m5�8�&#x1b;�H	�&#xb;d�&#x17;�&#x8;�,�S&#x2;�&#x7;G�f�&#x0;�����w&#xe;��&#x19;�H��b����9��j�&#xe;�&#xe;�9W&#x12;��&#x6;P�&#xd;
+�jFc�9g�zr|��&#x13;Mt�&#x14;.C4Oø�)��ɲ+U�&#x11;�&#x17;��H-X	����m5 �#X�Hj�h1ˍ�2&#x18;&#x17;�	/Ùku[�K)JQʼ&#x1f;��%���x�k�����,����&#x3;��H��7^�fB�V�R�&#x15;o����U�mz&#xf;Ɉ��W&#x14;�&#x10;V?&#x18;L7�*&#x10;=Hv�n_�-�۾�[�f�~�\����,_���&#x379;9�j����l}y���*×&#x1f;�Gv�&apos;�G)n��o&#x91;+5��W�(|�&#x10;�P:��&#x1c;�AJw@#K39O�YÆW�%&apos;��&quot;?nq��xr)���&#xd;��!0��u�V,Y�[�mB���$���1w/�&#x7f;&#x1b;.x�iF�a&#x19;w]ݖ{�&#x3;�K��S�}�H�U�Z���&#xd;Ե�&#x1;�J�SK�&#x92;�MV�N�1�R(�&#x1f;&#x18;0w{y}F���O̪��&#x5;E_&#x13;M�&#x5;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/baseline/1/401b1566-6620-465e-b775-ed9d9f5135bc</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:07:22 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/events/1/4f6ff9f0-cebf-4bac-b901-07a38db81a92-20" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��U�n�8&#xc;�&#x17;�nXH�=&#x7f;��&#x5;�a�0h�j�u,�$�&#xd;���R��M��	�&#x1;&#x4;&#x4;�x9$&#xf;O^��&#x1f;&#x1f;�~46پ&amp;�~$�t���.4��Q�M�P)&#x8;&#x5;���j��&#x7f;&#x8;�&#x15;&quot;�$4�k&#x1b;&gt;Ž(��8�8BoG�XB�St{�ȱ�&#x18;|�9i�&#x7;C&#x18;fG��0�9ć���=�k� !�C��&#x7;��Fg�!����Jf�&#x18;&#x14;&#x19;��H!K��:�&#xd;
+�IeY�-�m���0E�c�kg&#xf;o?���5S&#x0;�;2�&#x5;Ѓ&amp;��&#x10;���#�z &#x7;v��~����Z&#x7;#=���y�@&gt;E�&#x5;fR5�eQAY!2�T&#x2;�R&#x3;v�B��V&#x1b;�&#xd;
+�&#x1b;&#x1a;�Y�&#x3;�=&#x4;l�&#xf;?�=&#x1d;���:#cD]�ɥ��&#x13;-���Pi�&#x5;��&#x14;��&#xd;
+R���&#xb;��r�c�����&#xe;�&#x8;&#xe;vv�&#x6;&#x3;&#x18;��F�\ ��&#x18;��&#xb;t�#5��!�M&#x5;��&#x15;��Z�E.�\����&#x1d;��t��&#x8;�&#x1b;z�v�|��v&#x14;ܡ���i�~�yryW�)�Č�q��h&#xc;+�&#x15;�&#x1a;$s&lt;ߦ����]֥&#x0;!��/;��&#xc;�	���� ��ijt�&#x1;&#xf;͞i�/�&quot;��&#x13;��	N\/�d�UV�X&#x1f;;��H&#x3;?;�&#x1;=-&#x19;.#��\��&#x7;��~��KU4E܄S#b��ֲ&#x13;�-hj&#x1;YYv���`�&quot;�1&#xf;Kl&#x13;n^�T�-{;���5&#x19;�&#x1;��ݹ�w�q%�4+����5d��&#x1;�T��2�Q&#x18;2�^hC�7=��&apos;���j����`���&#x7;�&#xe;�q6��&amp;&#x19;qў�)rE���4Wl�&#x12; ��X~6���9�Z�-��&#x5;^�%e���n&#x4;v�&#x1e;_��r����߬q�CϛÄm&#xc;�&#x3;�gȖ����&gt;��=y��t&#x0;Vf��&#x10;m�(�&#x7f;9��D��c��B�3hUfE�W�o�΅��4�&#x1b;5�}�O:���17+�����?�&#x1b;���&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/events/1/4f6ff9f0-cebf-4bac-b901-07a38db81a92</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:07:26 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/58bba8a0-a30a-4a90-9dff-4b060f361358-21" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;����n�6&#x10;��E��1H&#x1d;-�A��E/�B�a谑I-I91&#x2;�{��c;����&#x2;&#x2;&#xc;if~~��_�ɺ�`����������I�4${�bW������~eݎu_&#x18;�1V&lt;&#x14;���&gt;���&#x4;&#x14;�;�p���&#x1c;&quot;�h�&#x1b;(6+�L&#x18;H����&#x7f;�N�g8x-F8F���K��&#x11;O�G&#x6;��#	&amp;�N9&#x14;䢔���t�2��&#x7;9GX&#x7f;&#x16;���1������h&#xc;�{0&#xd;7P+&amp;A���V��a�Mk��|~(�a�!&#x1;e(�9��u��� �&#x10;N~&#xe;&#x11;G&#x3;&quot;��ϩ�#T�%��1�E�{&lt;�7�趁�1[��ނ�[	=kx۔e����M��&#x17;�P&amp;怠Ī����km�`5T�����&#x12;��&#x4;n*�u�D)�#b&#x2;c&#x3;&#x1a;�&#x2;&quot;�F#�1&#x1;���pz�&#x0;��Z_��&#x1;�&#x1f;`�&#x18;nY�����&#x3;&#x1c;�=V]��n+&#x4;�U&#x1c;D�5&#x8;%K��Vj#(�ӛ�ϙZ��Į�p�&#x3;�p&#x1a;�~&#x1a;�l�|L�7�MIB&gt;&#xe;G�K;s���-�i�6N�8�&#x1b;�u×&#x18;z�{���]QB&#x1c;��=�y&quot;����yy�XYv�笮�1�G�P�&#x12;��e�&#xe;m]��sP�k�&#x18;UF��A�u&#xd;
+��%��D�(&#x15;���_�&#x18;�HY��&#x1d;&#x3;����L+=ױ�Z�4�ٽ9&#x13;U	�&#x7;�~aͮb&#x5;�/�ʪer�9c�&#x16;#�:m����Cr4U�&#x19;F��k�kރ�*F�]s-�AS�&#x1b;I��ׅ�/�A��&#xe;7S�G�����ĺn��e�(���p�&#xd;�&#x1c;Q�\�Nb�?u&#x1a;=�&#x11;.&#x16;�����&#x3;ĥ��A�ߏ&#x8;&#x12;&#x16;|�=��e�ɫ&apos;L�8y&#x17;}@=���8���KaF�Q?E*q�|�~����M��8&#x1b;�h���p�&#x18;#^�y��]`�	&lt;���&#x1f;�&#x7;���Op��&#x1d;�v��l��)&#x13;���&#x13;:���&#x1a;i/�l&#x12;�F{w&#xb;X�t�t�5w�h&#x14;c5ma��*��&#x1e;�m+���&#x12;��n�9/�w@m��2����L�p����&#x1;��p�*&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/58bba8a0-a30a-4a90-9dff-4b060f361358</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:12:07 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/pageload/1/86c42127-2f45-43cb-adcb-b20bb605c913-22" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;����k�0&#x10;��&#x17;��W$ٖ��q�&#x1f;0&#xd;
+{&#x18;�ȖԸ�%W�ӄ��}&apos;;&#xd;i�nt&#xc;&#x4;F����N��S2v���)��!Y���&#x7;�B&#x1d;�A%��&#x11;�&#x2;��oH�&quot;�&#x3;!+B��D&#x19;�W&#x1f;���&#x6;=��&#x18;�mG��	&gt;�|쌴�0X)z�x&#x8;��o��6j&#x17;}&#x1a;&apos;L��(&#x1;�x&#x15;�9Rp&quot;���&#x18;)L74���3&#x3;:�������*SZ��&#x2;�S&#xd;YK&#x1a;hXK��&quot;&apos;���k�&lt;?c�*���v&#xb;&#x83;TZL}�QjX&#xb;#{��&#x1a;X�=h���G��r&#x1e;bF;����gV�Ri�K(J! KS&#xd;
+��&#x12;D�0A&#x18;o�&#x16;33��!&#xb;&amp;���V���_zG3�� &#x19;�����&#x18;T�d@uJ�&quot;mT�d3G7��&#x5;@E9�0�l��� �&#x15;����5�&#x0;k&#x1b;�sD�Z&#x13;��m����	�ђ�庄��&#x12;�,&#x1b;�HNy�&#x18;�B�&#x8;��&#x1d;�:H&gt;�^&#xd;*�]��}�L]&#x1f;�����f�g6�R�HA��&#x0;��nf}�:&#x8;&#x1d;��C�&amp;��#��T@q&#x18;�U&#x1a;},&#xd;
+&gt;���&#x6;�b&#x1c;k���&#x17;�z����A��\/����&amp;\��j�&#x1b;�u[�g�H/�q&#x14;	�&#x19;V^&#x12;�?lQ�F�x�^�&#x19;���2�?�&#xb;8�8��8�&#x7f;�&#x15;�Z����j�a�&lt;棸Uuo�&lt;~���������/&#x1f;?��:�1�G��7�Gk�:�/(K�|�k�U��ʋ��v&lt;&#x18;�&#xe;�,&#x19;&#x16;SN�&quot;&#xd;
+�&#x15;3-Y���&#x2;~JZ�c��u��&#x4;&#x11;�vF�&#xd;
+^����&apos;I.�&#x1d;&apos;����Tr�zU�)aV&#x11;^��&#x12;�&quot;��&#x17;M���I�/q&#x1f;i��&#xd;
+�&#x7f;=�&#x6;���s�&#x6;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/pageload/1/86c42127-2f45-43cb-adcb-b20bb605c913</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:12:10 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/background-update/1/eacf136f-1d75-47d1-8956-31656bd3679e-23" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��U�n�0&#xc;�&#x17;�.,$ߝ?���=&#xc;�A[T�Ց&lt;IN&#x1b;&#x14;��QN�6�w(` �|(&#x1e;&#x1e;&#x1e;�w�4��v0�&amp;����d-W�&#xf;�B&#x1b;�&#xd;%�$&#x15;i&#xd;
+R�,&#x7f;�|�&#x16;߄X&#xb;��&#x12;2�&#x11;&amp;&#x3;�&#xf;c��(&#x1f;0�&#x13;9Ƙ�c�a3Y&#x17;��9�;�)8;�v&#xe;��k�����Q&#x3;&#x6;���滤sh�+��[&#x13;&#x18;�\&#x1a;&#x1c;�wdbx���b&#x4;6�Ҫ, /t&#xd;�P5��;hD!�&quot;M˲!&#xe;&#xf;�)r6æ���@�߯���({&#x3;&#x1b;�p������ݖvg|�#&#xc;17topjr�Z4&#xd;�Bj�{�A��&#x12;j���F�R��8&#x1d;~&#x16;J��&#x7f;&lt;hN5;�&#x1e;&#xf;d?�C�Jk&#x14;9d�� ϸ��&#x16;7Vg�����.&#x7f;���&#x0;zp��-�&#x7;E&#x1a;�1&#x0;Ӄ+4j$&#x7;��A@�k&#x1d;&#x18;��ٓ{��E�op����*k�jD�I�F*��KQ�e�4��9��ǁ/��w��6&#x14;ܮ����a�i&#xd;
+yQ_�|&#x11;NS�s5�F&gt;v&#xc;FO��&#x13;8:]�2gKբ&lt;�T��Fܵ[�v�&amp;�-�E�?��j&#x8;�����m]�e���8$?&#xf;j-&#x7f;&#x1f;�&#x1e;BO�cֲQ�&#x17;�.ԍ���z@�;�iJ�g!*��_H�&#xd;
+C�%�J����X������N�кٜ�ː�����(֙HX&lt;�&#x1e;��&#x17;&#xb;�#�Ka3%k��8�Һݽ��&#x11;�J&#xc;.�ࡑg�_&#x6;&#xc;y�ث�}}�m����S��X&#x1f;�:��,)��(�]r&#x1f;�&#x7;gR���^Q�?k��8�-،��a$���&#x17;�1g�q&#x7;���&#x11;���&#xfb3d;ޠ����i&#x7;�;��e�,)��N��,���&quot;�}�&#xb;�z�&#x3;��ߧ&#x15;���&#x1f;�(�����&#x0;����&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/background-update/1/eacf136f-1d75-47d1-8956-31656bd3679e</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:12:14 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/d1d92f7e-a4c7-4f02-ac25-b104256a62dc-24" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��U�n�6&#x10;�&#x17;�6c��Z��&gt;w�&gt;&#x14;�0&#x14;�&#xe;&#x1b;�Ԓ�&#x13;#�w(;Υ�v&#x17;&#xb;&#x8;0ɹ�&#x19;�C?&#x17;�u��:��s&#x11;�k���]&#x11;&#x13;�4${�bW���@��~&#x11;�N��&#x8;�&#x13;��+����	��;�p��P&#xd;�b��&#xd;&#x1c;�3&lt;�&#x14;8�K1ן��;�!LK &#x18;q����A&#x5;t�=gI�/e&#x7f;Pkx&#xd;
+���4g&#x14;�&#x1e;�&#x12;��&#x2;&#xc;~�����Ͳ�Ơ��2m&#x5;uU��7�&#x4;i*�u�&quot;���|��)����&#x7f;&#x2;����2%`xp�NO&#x14;�;x�N�G��&#x3;pw�D&#xd;
+&#x11;r��D�㘩���-t[D�\I�^j�Q�(�Vi�+�&#xb;&#x1a;8x�&#x13;&#x1c;#𰯛��#��g�&#x1f;j�5&#x19;#�&#x1e;L#&#xd;ԣP��Q�Vc#���5-�&#x7f;�H�d&#xf;�&#xf;	�]��.��u8p�&#x7;��_B��&#x0;&amp;���Fo&#x10;��%��&#x6;:�3�m�n�&#x16;j���z��&#x17;�l��l۞����v��&#xc;p�,g��?�D&#x7;J�4D�0��N�N#7�Məp�������ǁ�1�&#xd;
+��[�q!ú&#x1d;�L&#x4;��^����j&#x1b;�	Oo�ٺ�W�K�,%Q��쥨�l&#xc;�M4fQ��i�&#xe;m]���Am��(��hz&#x1;u&#x5cd;�X+0eIrd�t�oz�1hL9��;&#x1;B��eU+&#x7f;7�2�c&#x1a;��^�&#x19;U	�&#x7;��nv�(x|yVv\�&#x1b;y��yu���*����&gt;�2�&#x1d;����#�6����檮�������D� �_3N�&#x1f;&#x4;Z&#x13;���g�̸��5&#x7;{d�w�r&apos;˒���D{&#x1c;O�&#x1b;&#x11;6og,�Tug&#x4;?P����=`U	f]-5&#xd;
+C��9���VF�9����&#xb;�]&#xd;
+&#xb;�&#x15;�&#x1f;&#x1f;(}&lt;�6t��YH���&gt;�&#x1e;b��R&#x1c;&gt;��J�z~���!ڽc�e�&#x6;�HY&#x13;t���&#x7f;2z~����0&#x17;;�t{&#x1d;�&#x5;h�&#x2;\_&#x7f;?�#�V���=f&#x13;*��n��K���2��L��&amp;�&#x1b;�&#x0;6-��[&#xd;�(	]#�R�&#x1a;�V��k�&#xe;&#xe;&#xb;��	i�||&#xf;�&apos;��u�&#x7;Z��M)&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/d1d92f7e-a4c7-4f02-ac25-b104256a62dc</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:12:18 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/e3dd2e16-130f-4250-8608-c9afc676c39f-25" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;���͎�6&#xc;����]&#x6;��&#x15;�&#xd;z�&#x16;=&#x14;�!KTF&#x1d;G�Jrf� �^�q���`�C&#x1;&#x3;�D�ϟ)�&gt;&#x17;�u��:�ݹ����	���I��&apos;{�bW&#x8;&amp;J`�4�X���&#xb;c;Ɗ�&#x5;:��G�O@&#x19;�#&#xf;�oI&#xe;}�&#x18;�w=��&#xd;
+�&#x13;&#x6;Rp)���0���p&#x2;~�i&#x17;�&#x1f;G?&apos;8�W���C�рL��s�s1&#x4;��&#xb;�+�&#x12;y/�)�lK�)�9{&#x18;�x�Z���&#x1c;�7Mv���覆�6[��ނ��&#x1;:V�&#x16;�i:,.&#x17;�&#xd;
+&amp;06��� #h4r&#x1e;&#x13;L���tz�&#x0;���uڿE0&gt;&#x0;�4�&#x11;Ï�ȉ��2�#�Op(:,�f&#xb;�VJ�ʒ��&#x6;�&#x6;!�h&#x6;m$&#x1d;���ן����!&#x16;&#xd;
+4&#x7;&#x4;%?���&#x13;&#xe;^ic$��4MI&#x1c;B&#x0;�M&#x0;7%o�r�a�&gt;�f&#x5;&#xe;^�&#x11;�&#x11;�&#x16;�E��&#x11;O�&#x5;��/��Uh&#xc;�:057P)6� &#x14;���5Î��4����h�Խ�&#x13;�x�&#x14;N}ԯ�0�1��|��&#x8;�#��Wt�&#xe;G�&#xe;�,#���^lB�3L��m�7��m�Fy�T&#x3;v�&#x3;�نm8�=�|��Z��&#x17;9�&#x12;7��bL��w�U%&#x19;&#x17;C�e�Qy�2`��oK��s�A�٘�0��3I	`&#x1d;��&#xb;�we���&quot;Gj:�&#x15;�˕�cP��&#x2;)�&#x1;�&#x10;�&#x15;�\+��җse�ҹ�O��&#x11;�R�6�Ln&#x1e;u9��j&#xd;�r�4T&#x15;�@�%�n���̠�t֍$��Y�:46��PD������a�&lt;BV�&lt;&#xf;&amp;���N&#x11;�%m����ڸ��ʶ�~?&quot;&#xc;�9z�&#x17;\����&#x7f;���=R�&#xf;2&#x19;&#x7f;�J�-&#x15;�H�&#x11;7q�.����A�R���ӫW�(�v&#x7f;���&#x7;����+���&#x1e;����}�{G�X�&#x1c;#���u&#x1a;�E�4��Kp��&#x1d;}&#x13;&#x1e;&#x12;{&#xd;�&#x13;%���&apos;t�&#x1f;[u���%�kfμid�U	��$ۚ��J(P̔&#xd;
+&#x15;J�쒓LS^eU9Шڭ�&#x8;�&#x3;&#x10;o���&#x14;J�&gt;�OP��ߗ&#x7f;&#x1;TA�&#x1e;+&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/e3dd2e16-130f-4250-8608-c9afc676c39f</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:21:06 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/metrics/1/52ccaaca-a028-451e-b98f-ad55810351ac-26" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��\�n#�r�&#x17;.�1���C���3�&#x1f;�&#xb;� �dQ�m���њ����#2#2#)��&#xd;&#x18;h�)VVV&gt;&quot;�9&#x11;��?&#x17;����pڟ&#x17;�&#x7f;.��o�g�\\o�嶾&#x1d;�����(cW&#xd;
+��_Uz����zVj�\̧ݧ6�W&#x15;�Uhm.�t=������2�f�����&#x2;��nW|���;&#x7f;��λ��~]ݦ&#xd;�q�_��?���2�����&#xd;��᭫M��v���|���G���w�*�y�W9��^�Wn�6����U�M^�Y��&gt;��&#x1f;�8���ms���&#x7f;���Z.�w��_W{x��2����x���7�����������r+�&#xf;v�1��wf��V�h7�f��8&#xe;o���m&#x5;�s�&#x7f;��Ӱ&#x1f;&#x18;��m�6�~���|ܯ������ F�=�n��&#x1f;��&#x4;&#xf;��_9�O+�vi5��f����&#x1b;&#x13;B�?�&#x12;&#xd;�&#xc;�:�V��eޟ&#x7f;_M��n�O��m&#x5;��z�N��|Y�O��������4&#x7f;�������rQ��K:�&lt;�&#x18;�*�i�%�z5e�[Mۍ��	��~�1㨷�&#x3;��L�6&#x1f;��v���7��&#x11;���)=&#x19;x������lN�&#x11;��@�銫2]���ۼE&#xb;�&#xb;���&#xe;���&#xe;����c�&#x1d;&amp;z(Ư�zRt�&#x1f;�.��v��I�9��&#x1d;&#x16;�QW��);���j_o�����M7�;�Ry������6�&#x7f;��sT��w�#�_sM^&#x8;&#x1c;L�;�U`��&gt;���q��&amp;�Y퍙�&#x16;�/N�&#x5;,&#x1e;��a[�&#x16;=��&gt;��e�~�O8��S��;,ڴ}�����&#x18;����t��&#x7;������t&#x0;&#x3;X�&#x1d;���u&#x6;���#�痧&#x3;\9L��&#x1f;ӭ̿ݫcNJ����әo����&#x6;vi�ޜϰY������0?mp&#x1b;/ק���6&#x1d;��0�`��&#xf;�y&#xd;�SF��q[���&#x11;�g?&#x1d;��r&#x1;;:m�����r��&#xf;&apos;&#x18;&#xf;.&#x1c;]��&#x7f;�{&#x1e;�\�/�i����&#x2;&#x1a;�8����;l�φ�^�o��e���&#x1e;�X���~��&#x17;|�&#xb;���|��/O��&#x1a;��6��&#x1b;����4?��&#x17;�&#x1b;��y��/O/����k����弝��5����X&#xc;\��&#xf;��&#x1d;���;&#x1a;�S��y��&#xe;��S&#x7f;��gp&#x1;���9�Mo�p&#xb;������z?߶���|&#x5;ԩ�&#xc;3&#x1;��&#x1e;^���&#x16;&#x1f;&#xf;&#x16;�&#x1e;V&amp;T&#x6;]&#x1e;x�6���톫	(4m��\`1v��&#x8;�&#x15;���x��9�+gi�&#x7;�&#x19;@&#xd;8k�&#x1c;`&#x1d;��&#x19;gQ&#x1f;[We�?�J�&#x1d;`�&#x0;�[VI;�J&#x7f;&#x17;x�Ӵ�&#x1d;��&#x18;L�ɵo&#xf;��}�:������[&#x18;�������8�̻iS����~�~�o�f���7O}��X���-����z�R��&#x7;0����i6�SѺ��j&#x15;���(��W���{&#x1c;\�����&#x18;W��&#x13;2:~���A&#x7f;��U�+���Pv&#x1f;���?�&#x1a;&#x19;&lt;Ip��&#x7ba;�W�&#x8;�n�Ϋ�Z&#x5;l��nR�y�&#xd;
+r��0�}2�&#xe;ݯ@�&#x3;t��&#x15;�wAط3�&#x11;8:X����7�&#xb;(/t�j�;���&#xd;o�&#x1e;��@[���&#x1a;&#x17;#5ڦųB־����&#x1c;&#x3;F8��?}q��)�&#xe;@�(ك��3\�o�6��&#x1e;L&#x2;���}h�U�uIÁ&#xf;Z�@�����z���&#x7f;�9����sm�M�t�Ps�&#xd;�&#x18;c��~&#x7;&#x1b;To�^&#x19;W?E��j&#x1b;S����t-zU��D&#x3;������\�E�k&#x17;&amp;�T�w`����֔��&#x10;S&#x1d;��Zե�)x&#x1a;n��&gt;����WX�X�r0�:B�u&#x1d;��Г�&#xf;&gt;Ҡ�sԑ�&#xe;�N�@�kg\���:&#x19;p��&#x7f;0�&#x7;�O��&lt;��w�*&#x1e;���AY�tx�ʵ��Gg[7ʩ�	L�&#x1e;�&#x15;&#xf;&#x2;����&#x1c;N�&#x8;��&#x19;&#x1;�wk�&#x7;K�&#x19;��&#x8;m&#x19;&#x10;�&#xd;
+킣g9W�/[�}e&#x4;&#xc;��L&#x16;f&#x1d;�Cv�N&#xe;8�&#x1a;u�iչ�&#x15;���+͖��&#x5;гv��1�MCӘ&#x13;o*�M��&#x5;���`)lO*�]pV��&#x19;Z&#xf;�M c&#x3;h�ՠLH�=�&#x5;&#x19;&#x1b;9F&#xd;
+��u��4zr+�V��,&#x1d;&#x1a;4&#xf;��Ғ�GO�Lw��,oE$C�4sG�`����&#xd;
+�!l���%tgU4&apos;^.&#x1f;39�����&#x7b4;���9:r���eH�&#xd;
+6�ݞ�����B��1~X�&#x7f;&#xd;һN(�hǶ&gt;zG�&#x1a;�bi�&quot;mxR��&#x10;b�E�G&#x19;��w�&#xc;��&#x14;i&#x14;@o�&amp;�[��HCs��*�&#xd;dц{Ids�&lt;&#xc;t&#x0;i&lt;�@�׀CdΊ������ �c&quot;�Hl�`\�p��\}&quot;���&#x7;֧M%�&#x1;����&#x4;Ƣ@&#x1b;�+�hMVo3�.�&#x7;�&#x8;y�o�&#x2;(�#�C�V�D`&#x6;&#x1e;K��&apos;��&#x10;ʀ��`Is&#x8;��/ǚ�� �i&gt;�&#x14;�Z�ӧ&quot;��(R֥���v{�&gt;���������&#xc;���=��R����&#x3;��a�f������X&gt;tN:�s��t����&#xe;�&#x0;)���ߧ&#x3;�&#x1f;��j�&#x8;��m��*���D�*�T&#xf;��P&#x1e;�&#x1e;v�Y#=%�z&#x7;&#x7;&#x18;D&#x1e;&#x18;��Y&#x11;.�=x&#x1d;�@eO��#����&#x12;2�uhQ��͒&quot;&#x12;It&#x10;�%��&#x19;m&#x13;,7��VC�&#x15;�R�L�:�(�+Iw�K&#x11;�&#xf;�aFW����#�c��=&#x15;�&#x7;P2d_d�Ơ1@#�ek�g�&quot;�&#x1;�cq&#x7f;$��Mq&#xf;�N�R��&#x3;nh&#x17;���J&#x1e;�Y�R&#x10;=h���sB�C�n`:9���&#x16;�*�σT&#x1;&#x8; &#xf;L�H�&#x0;Ƴ�p���m�E&#x17;oE#��N&#x15;�P�&#x1;M�&#x5;i{���2�7&#x96;�MT���&#xe;3L#9B&#x18;b&apos;��&#xc;�YxX&#x18;� &gt;�&#x0;q]}h�g&quot;��g�Q6&#x1e;�&#x14;)yv|�=�&#x3;�&#x1;`�C7,�&#x2;��fOR/&#x7;��*��&#x4;,�Tu[��&#x1;9h큓&#xb;&#x13;9�gDU�&#xc;�x	�B�&#x19;1&#x10;�&#xc;&apos;&#xe;��&#x19;� &#x7f;&#x12;a�&#x8;�+Oڂ�&#x0;�Y�8�vB�R&gt;!&#x1f;&#x6;�y0&#x1;��&#x0;�o��&#x3;뼈RN&#x17;R����.u莪I&lt;ܒJR��Ωb�&#x1a;c&#x16;��dbC�&#xd;
+縷&gt;�[&#x12;���ۺ��ְ�&#x1e;i&#x6;�&#x7;�&#xe;�&#x1d;&#xc;&gt;5�Le&#x14;UX�,�Y�g���`&#x11;&#x1b;&#x6;�PM&#x0;������)&#x12;&#x4;�``d�����&#x4;&lt;���ɷ�`M��֎���B�I,�|�{=�5,m��֬�}�r�8&#x10;�T�U�&#x13;�&quot;�&#x1c;�H&#x1;Z����G�&#x1c;�&#x3;a�$&#x10;������M��&#xe;TU�{&#x5;,蒢&#x16;ހ1!��&#x2;=&amp;��$���Ģ��&#xb;���&#x18;E㫢S7-��&#x7;7��`gz��Q&apos;�:&#xd;
+&amp;��w&#x16;&#x16;!S�&#x5;}[&#x16;�p�S���&#xd;
+R�c&#x1b;����-�&#x2;/�&#x11;z��|\����m�D�&#x1c;ھ(iAY�&#xf;2&#x1e;�]�+&#x1;e��R�&#x0;��E��W&#xd;lY�R�}1@�	��b&#xb;P����ٞ�0�(B�%@��&#xb;QT�&#x7;�v�&#x2;���&#x1b;yC�}Ci=r&#x2;�J�&#x16;x����&#x18;G@�BJ�?�B&#x17;�F�&amp;�G`�&#x1f;ɀqe���&#x7;��&#xd;&#x1e;�S@�&#x15;&#xa65;�k���&#x13;��&#x14;��=6d�u&apos;+\7i��&#x15;&#x10;�u1�L�۠;N&quot;z5�&#x1e;�a&#x13;4bW&#x0;�9�&#x0;Q`�&#x1e;	�Ѣ�&#x2;.}Gt�F�3[��Lpc�$&#x19;;&#x13;�*?���:�@�a�&#x15;�&#x14;,�&#x4;&#xf;&#xe;�[bT�&#x11;&#x14;��&#x10;RC0P�Ew�&#x12;���Ⱜn��&#xd;�B&#x13;6�ɲ���)&#x16;�Ք��Wu�U���Z�V��:�ݙ&#x14;��Fy!&#xe;8��&#x8;�5��J��K&#xd;W,J���ق&#x15;k&#x1f;��	F�&#x0;&#x3;Ee���&#x6;Vl�=~��W�&#x1;5��&#x12;&#xb;�TXլ�QO�&#x1b;t����LL͓5�&#x1c;�&#x14;hc��i&#x1d;�Eաo���y��)��K�&#x19;#H�&#xd;�L�O���v&#x17;T��*���B&quot;�d8YR�L#��&#x18;Ӡ��&#x10;� L���&#x12;�&#x11;����9S�66W�n��|��&#x7bf;�%v&#x1;��&#x1e;�&#x8;��t6�Q��M���&#xd;�&#x7;�x��U&#x2;���&#x5;=�+�&#x16;?�gc%��u&#x17;�&#x8;�dp&#x1a;�э5z�&#x1;n)��P&#x14; ���&#x17;�&#x1a;&#x2;�A��xFb�T�R&#x13;&#xd;
+�.L�&#xc;��8�&#x1;u�H�&#xd;7&#xb;&lt;M#�I&#x12;c&#x16;F��@�&#x9a;&#x7;��v�1��0]&#xd;
+p�&#x10;&#x7f;4�ѳ\&#x1a;&#xd;���v&#x14;r�&#xe;��W%i^��&#x1a;m�ѣ�&lt;NЛꨐS�amt��\�#�&#x8;&#xe;��-�L�&#xd;
+��Vv�&#x13;L&#x16;Ħ:�b\�J x)�U�&#x12;&#x2;�xHP�^&#xe;����8NC+e&#x5;��8S��&#x4;_�%P�*&#x3;TeȯK��v^&#x17;��U�(�Dj��F;$�&#x8;�&#xc;}&#x7;�&quot;&#x19;[zAu&#x18;&#x8;Z&#x18;��4����&#xb;��C�S��Q+�&#x1e;�a &amp;&#x1;��&#x1c;�z&#x12;�����BxB��٘{&#x2;�w��&quot;&lt;ȃ���&amp;Q�V�&#xb;�v�~D&#x1a;F&#x14;��&#x6;&#x1b;&#xe;~&amp;�)��H�&#x3;�&#x8;��]�t�0�μ�Q�_�&#x3;�&#xd;
+$&quot;&#x7;Ј�&#xd;!&#x1e;b���&#x15;��&#x7;&quot;&#x2;�l�g̰�_Z�MB&#xe;��υ�X������&#x13;��&#x5;r4�@��H�9��c�&#x7;&#x7;�PC̓���&#x12;�Tc&#xf;��HB]z/Eږh&#xd;�_-�n&#x1a;z�ccgJߴ,d�&#x2;&#x4;��P=��&#x17;(�}!e&#x1b;&#x10;t�^\M&#x4;gC�$�WmED*��R#N-�AK�Nb&#x11;�&#xf;F3�o8�^��tg�C~�&#x1;&#x0;�T�r�C�yJx��i&#x17;J&#x6;S�P&#x1b;&#xc;�(�??$�&#x6;��`&#x1;U�DS��&#x12;�v�s��&#xc;����%3���t`�+zD�d�BOṿ&#xd;I2�X���&#x83;&#xd;
+aG�:�z�O&#x12;&#x12;�&#x7;�&#x14;�5e��]��n��&gt;��ړ&#x12;PS�;)A:�&#x1a;�v�#X	�[FE=d�{�(�&#x1c;�~̊&#x13;	&#x19;�:�f)��&#xc;:��:�1E��)2�`���B/C��Q.&#xe;r�(ZNї&#x8;_&amp;ѥ�&#x1c;��Rj�&#x8;U?&amp;�D�T�$k~�!]z�&#x14;��y��/P�&#x4;�}�&#xf;&#x15;���\�&#x3;&lt;�υ&#xe;�%�R	�?&#x0;R+�5��l)3��2t�;&#x14;p-�o��a��;N�)�$�ӉC&#x3;2��&#x1d;N��V�m�e&#x1e;P�չz�R��V�v\&#x18;c�7Z���Z�rm;� ��2���9�P�]8Ǳ� �e�sJ�┩Z���&#x8;0&#xd;-�RT$&#xd;�Ed$�\-˒m�M&#x2;;�&#x13;Hik����˘�d����^�&#x13;&#x3;=�ы�$v첗&#x7f;��S�͒�MM�&#x15;	/c\�-k&#x1f;�s&#x1d;q|&apos;.&#xc;2�����N&gt;44.�(x���[5&#x6;�5�pP&#x2;U�(�7&#x15;���@&#xd;)+��k��k��&#x14;&#x6;+v�6�EP��B�M���0c&#x19;l��&#x1d;Ա,J�~�~��&#x1d;InMY$��&#x18;&#x1;�y�A$4bO���P��&quot;$��&#x7;��Lh�9���&#x14;��&#x2;&apos;&#xe;&#x15;��&#x4;&#x1f;&#x3;r�p�&#x11;�I%&#x15;���1M[&amp;�&#x14;�x�f&#x6;���&#x11;jbX��e&#x16;&apos;1��jx&#xe;�&lt;���&quot;����8���&#xc;&quot;K&#x5cf;��TU��&#x6;}m�Mnfy�&apos;&#x17;&#x7;��\��_I|�y�Ql��;&quot;�&amp;&#xe;!�����ʘ�CG�^�b�{�|�&#x19;�Z�$a�&#x0;�-l&#x10;�&#xf;��&#x1c;��L�	�&#x15;��@��&#x1b;���&apos;&#xc; Jl}�X��m.�ܩ�&#x14;���6�i��&#xf;!1&#x4;���	�jO�����&#x18;\T�+5��Ez���a�VC^��M:�&#x12;��&#xb;6&#xc;Q&#x2;9�&lt;xԏ�uofI�hW$a&#x1b;�7���:��s/&#x1d;뙤�o�tr�k��&#x16;&#x19;nN��+�c�؅��;��@&apos;��&lt;�g�n�X� b$ח��]����&#x11;g�D&#x1;N�b&#x6;�&amp;R��z�m�M&amp;�u&#xf;�&#x12;&#x19;�7�2��%�3fLw&#x10;��&#x7;]�&#x19;&#x7;3��C���C|/]���K� �&#xd;
+�z�0�[&#xb;Acݘyi�]�r�Tu�h�D���N{-�H�+��Ω�f&#xe;�t�IYs�gI��^#s*L�&#xf;ٷ���&#x2;�C�H��&quot;&#x18;%�:;h���CJ���W�Ќm&#x1c;��!�H�o&#x5;OhvU&#x8;��X�$�5KQ�b�tZ�n��ʄ����&#x1e;�t&amp;��U1�	�$�v�!�F�jGr��E��&#xd;
+U�&#x1a;I�%&quot;&#x13;:���&#x1a;�3&#xc;&#x11;y&amp;&amp;&#xe;-�Vإ(L�L�H4�&amp;&#x0;z=6&#x18;�q�Ú���r�c^�&#x1c;&#x7f;��^�R&#x18;�6RM��&#x6;�N���V�&#xb;mv�ݯ�&#x7f;ڳ,&quot;�Q)P	Pz�j �E8aZuUTt�&#x8;Ed,=�Օ�&#x1d;�d6�5c&#x12;�]z�,t�&#x17;9a&apos;&#xd;
+N��P�:&#xd;
+]�)-��\��R�X&#x1e;�&#x1b;lY�Zi���6��V���&#x1e;&#x4;����[&#x1c;+u&#x1d;C�m�.&#xe;����;&#x1;ud�ETG&#x7;,D\�F��&#x1e;��HB7&#x1f;6%�U���8��� ���*�B��Y����&#xc;�&#x1b;O�&#x6;IQ&#x2;&#xb;!D&#x1c;��\�i�}#ӂL��Y��&#x12;�rAA&#x10;�n�&#x12;��&#xd;&amp;|�&#x1;F0-�5�JƸ���&#x2;s���pg&#x1;*4�&#x1c;J,-w��&#x12;�$�*�&#xf;`�0�&#x2;&#xf;����x�������c*�O�=&#x6;vC �3`�n���A4�mNN��f�w&#xf;Y�!�&#x6;&gt;n,��&#x17;�GI�&#x1e;O�����`�~1#Ï	B)���&#x19;`�&#xf;��&#x1f;0%��2&#x19;/�[C:�)�&#x12;x˜&quot;��&#x7;_�v���0�/&#x2;sI�cJ[��La�&#x13;2L�=G��&#xc;�p��g����g)&#x81;���&#x8;�Z�p&gt;k8�9&#x6;�&quot;{&#x5;�&#x7;&#x16;&#x1d;Y&#x16;&#xd;9k�L�6:&#x16;�e�a(n�gb�N&#x2;����x@S��2&#xc;F���=&#x14;b�2G?&quot;Y�&#x14;lQe�ڌ���&#x17;9�@��&#x3;�&#x1;]�(&#xe;&#x1c;&#xf;T��i4��Pf�e�}�$�grSN��V��ߎ�Q��&#xd;
+\0��/qZ&#x0;&#x18;&#x19;t�-�&#x1b;4��IE�&gt;+����R8&#x8;=.XG֩[�X&#x6;�]&#x1c;�&#x8;O:��)V�4Bo�&amp;����&#xf;P,����-�&#x10;є��&#x1e;��7�&#xd;
+��!�`�b��&#x1a;\V&#x14;��&#x8;�{&#x4;#&quot;k���(���N�2&#x11;Ĳ�&#x14;�?��&#x1c;�~:�#���%v&#x8;�Y����(�Ŀ�\3T�[4D&#xd;
+�!��G�zt?��Y���LX�$�(r�b�&#x8;�2&amp;j*��L�8j��u��}&#x19;0���&#x0;`q�l8�Mʠ�L�u������&#x1e;&#xf;ߴ�9G�=�&#x13;QJ�&#xb;	�&amp;^�&#x20f7;R����g|���=�A&quot;Lf�ŋ��&#x3;&#x17;a̘�}L(��n?��DY&#x7f;�H&#x1;&#xd;�/����y}���pL�]�Z��0ʲ�X�&#x14;�SY�&#x1d;�겊*+���/��X�&#x1d;H���P×��^�&#x1f;&#xd;
+�C�UV�e�{x9@���ڼ,�&#xe;g&#xc;�c&#xc;�A�� /9j(��&#x1a;~O&#x3;ˊ��l���p*@Vχ��p&#x6;B&#x1c;C&#x18;&#xe;+&#xc;�FYL��b)&#x12;&#xf;&apos;&#xb;�&amp;&#x19;k��&#x12;�P&#x17;����؅(��ǒ��˲&#x0;&gt;&#x1c;&#x1;�,m&#x1e;�Q&#xc;&#x15;gY�&#x16;:���s gЩ�1������&#xb;r�W&#x7;6�&#xd;h����|�2�mz��&#x1f;��i�?&amp;��&#x1f;&#xe;��G���&#x14;R_$�hI	F	v�IT�!�I/��&#xb;z{��&#x15;���C���6�d�v�&#x1a;18e&#x6;&#x19;�&#x8;&#x17;�4�&#x7f;�&#x18;&#x8;?������k&#x13;��9r�Q���&#x11;�����DS$�&#x19;t�&#x1b;�do\r&apos;&amp;!9GpY�����$����j��y&#x1d;&#x0;-&#x1e;M��BmF����L��E�B�����8��MX��/�5·&#x11;E�i�&#x6;&#x1c;}&#x8;{&#x4;9���&#x1a;�&#x1;�^~�&#xd;
+)���i*�}�o�џ�&#x13;�&#x1d;����?2��Ԇ{,�|�&gt;��W��s��Χ�����+�&#x7f;;�q8&#x1e;�����&#xf;z&#x18;�O&#x1f;V��?mQ������[���}�I�W?�O�uQ~&#x12;��&#x0;M����6&#x1d;&#x5f7;��&#xc;&#xd;��F�&#xf;y$&#xb;����?��W@����&quot;@��o�0��?���&#x2;�_�q�&#x1c;�O�Ԫ�&#x1c;I�&#x1;&#x17;����&#x1c;�� ������m���&#x1;W���XM&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/metrics/1/52ccaaca-a028-451e-b98f-ad55810351ac</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:21:08 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/baseline/1/b8d9b59d-6bad-43a1-9b71-c0ccf6936674-27" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��T�n�0&#xc;�&#x17;�64$۱c���&#xb;�Ѡ%*ժș$�&#xd;���(&apos;m�!&#x3;&#xd;
+&#x18;0$�&#xe;�s�V&#x1c;�ߏ֛�&#x18;ފH����&#x14;1aHc�&#x7;*��&#x12;U&#xd;�?�(vC�}&#x10;b&#x10;��&#x14;��&#x1d;&#x1f;)�J|�&#x4;�8{�@��r��&#x2;G�&#x14;sɣ6�&quot;&#x18;´&#x4;&#x2;���Kʆ)�WO&#x1c;�8G��0��)`��&#xf;�s���f/�hcP4P�����*跺&#x2;ij�u�D��px:&#x1f;3^o&#xf;�&#x12;��+�߹eJ`l 3�&#x2;F�dpq	&#x18;&#x1e;&lt;�&#x5ce;&#x2;�&#x1e;^���&#xb;�&#x3;xz�%R����&#x17;�-��7��BUOu���!r+�&#x4;�&#x6;TS��j&apos;mp�|A&#x3;�Y��S����&#x10;�p��w��=H}Cƈ�&#x7;��&#x6;&#x1a;%&amp;�*%a�q+���5-Cʠ��&#x1c;�I�D�&#xe;��y��y�&#x16;�r��,weU|y�˶�R	�&#x19;�^@�u&#xd;
+&#x10;�	LU�T�v�&#x19;�̼)~^&#x16;�G&lt;&#x1e;G�+���&gt;p9��g&#x18;ԓM�2���kǶY��&#x13;/ͮ���&#x14;�&#x1c;�ƣ�����&#x1;&lt;&#x13;]T�&#x11;[�&#x13;-&#x1b;�31�a��t�B&#x5;�&#x7;�&gt;��P�&#x4;k��]��`��r�&quot;��&#x16;&#x1e;^��U�0&#x1c;N܋&#x1e;ռ�D!_�7_��Y��&#x18;�,�8�e:ؔH�����\In&#xd;
+�(s�&#x18;��b�&#x12;M�gG�$��=�-�K��R�P��{&#x1e;&#x17;&#x5;���3&#x3;l;N�[��&#x0;w�}M�i^�_�y��:&#x1c;N�,vE�h��\~&#x12;���$S7�&#x11;�R�&#x1a;�F��u-&#x0;u#5&#xd;
+C�љ�&#x7f;&#x0;�����&#x4;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/baseline/1/b8d9b59d-6bad-43a1-9b71-c0ccf6936674</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:21:12 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/baseline/1/493def22-1f5e-4dff-8706-607ad6d9451c-28" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;����n�0&#xc;��ŷ&#x1b;&#xd;I&gt;�&#xd;v?`�&#x6;-Q�VG�$9m&#x10;��G9m�&#x1d;P,&#x8;�X���/�����~t�.��ZD�Q��EL&#x18;Ҙܑ�]���@�W~�r��&apos;!vB&#x14;�&#xb;��_6�N��M ��g&#xb;�ɝ){��(��O1�t��&#x12;&#x12;0A�&#x1f;+�BX�yY&#x13;&#x1c;�ಬ!�l&#x1;&#x13;&#x1c;���ZL&#x1;�&gt;pL����[�&#x14;0�K�S���8��-�ƚ��_L�&#x19;&#x1a;cM�@��&#x1e;jaz@�O0�F��Rm;P��&apos;+A	�&#xb;d�&#x17;�&#x8;�,�s���p@of&#xd;
+�xxv�,�&#x11;�&#x12;��3���{�G�Ă���&#x8;�&#x7;&#x1c;������&#x11;��*	8H&#x3;�&apos;�B����z�٘&#x19;�;�p�5&#x10;h��&#x2;�&#xf;8dm�EQCeۊ9�&#x2;�M����j�i�?⸩&#x2;���&#xc;�&#x8;	�ׇ��3]�&#x7;����Ρ&amp;k�0�m��Z�	&amp;�%�&#x6;&#x1b;A���m&#x19;)C�ٱ&#x5fd;�&#x13;�t�&#x14;.c4O㴺9�kdٗ�x�·�`�&#x16;\?�A@�u&#x1a;&#x10;�	�R$5�J�&#x19;}�.��&#x1a;b{&#x1c;��&#xc;n&#x1b;&#x2;)�&lt;&#x14;x:�S��&#x11;J��x�h__&#x1a;&#x17;O3^&#x1e;=�\�&gt;�D:_-&#x1f;����֯^�;���ǁ�&#x98;�mK3&#x1a;L�Z&#xe;��&#x11;�S��&apos;&#x7f;��M&#x1e;�&#x18;V�f�`&#xd;
+�&#x0;��$�]%&#xd;
+&#x16;/+��6��E�&#x16;3�Q_ʻ��d�lUwVp3&#xe;&#x6;�Z&#xe;�U%x�jiPX���q���D��&#x10;�&#x1b;���&#x1e;��o���&#xe;^5��SK�ψ��s-�\�/�8;&gt;e���J&#xe;�&lt;~��&#x14;���81�&#x19;&#x1f;��&#x15;+o�8�u:��h+xbag��Fr�&#x10;�P:�y��=�&#x3;ڛCiְE͞��&#x5;��&#xd;
+&#x1d;|&#x5;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/baseline/1/493def22-1f5e-4dff-8706-607ad6d9451c</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:21:20 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/submit/firefox-desktop/newtab/1/5185e1b1-6586-4972-8719-3541525da3cc-29" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">&#x1f;�&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;��U�n�6&#x10;�&#x17;�nF u����ݢ&#xf;E!P��a#�Z�rb&#x4;��&#xe;%Ź4Y��&#x2;&#x2;,��&#x1c;&#x1e;Ό����co�v��9&#xb;�#;&#x14;�.&#xb;Q��Gs��&#x15;�(���|g-��1v`,��Ъ/b�[�G&#x19;��&#x8;��Q&#xe;}�&#x10;��=�&#xd;
+O3z�`cH���*�&#x8;&apos;��&#x4;�&#x0;��&#x7f;�ş�b&#x6;/�xO&#x5;#��)&#x15;��R�2��eN��9&#xd;K��g���4���&#x14;�E�Z3!@�\C5�&#x1;�b��)Y3&#x14;\7�ɮWR&#x2;#h�Q�&apos;�&#x1;&#x14;j�L&#x11;f��^Z5�&#x7;ga#&#x1e;@;&#xf;tPX&#x2;�&#x0;	�-�s���3&#x16;&#x2;˶���,9H�&#x15;�q($+�Ai�r&amp;r�&#x10;&#x17;&#x2;Z&lt;�(&#x7f;��v&#x1f;&#x0;y�����R7%&#x1;&#x16;&#x5;�Z&#x15;�u�۶&#x1c;p&#x18;*J��}�aN��&#x11;��&lt;�X&#x12;ڮ&#x8;��&#x3;��-&gt;�AF�w���0&#x1c;��&#x14;��J/��G&amp;I&#x1c;�jj�j�A�T&#x7;Ru&#x3;&#x8;V�.��&#x11;H�&#x12;�q2�uk��&#x13;�0�K&#x1f;�C?,fJ�j�wyA8r�o���(Z.8����㽉8&amp;����5}S�I#u�ŉ̞&#x10;d�ݮL�&apos;y���,f&#x1d;&#x12;�Y�rN~&#x17;ޚɺ���ϭ��s��+&#x19;&#x13; &#x17;-&#x3;�����&#x1e;=�&#x19;��&#xd;���}	&amp;�&#x5;0&#x1;����C�b^�H�k��#���Z0��v&#x4;)�&#x1;tQ &#x1f;��Z9d$_�ʌ��&#xe;���lz����17�&#xf;�hQ���A�)�&#x74b;/��&#x6;��&#x17;��&#x6;&#x3;�&#x3;9LH��/&#x14;�-�&lt;`�5��܋|�F7&#x7;����&#x15;�]D�q:�=n&#xb;p&#x7;&lt;&#x1a;���͙&#x4;�?7m�&#x1b;���d%5��&#x1f;�gw&#x1f;��M�.���qB&#x18;@��I�?�#�#A&#x1d;���&#x15;7���}y~&#x12;B��%&#x15;&#x7f;�&amp;&lt;��ߺ8&#x7f;{�&#x1c;uY���Z&#x10;&#xd;
+��&#xb;�e�h4*�$Ө+�&#xe;-��m�&#x17;�&#x3;mf�&apos;8�فQ���ot&#x12;=�n&#x7f;7�E�vVw�gC�o&#x4;�&#x5;v5밁ZW&#x8;&#x15;&#xe;&#x8;�l&#x15;��&#x11;�����&amp;&#x19;i-���&#x1c;h�&#xf;;&#x16;Q{G��h&#x7f;Jj�\�E��&#x5ff;��&#x2;.���+&#x7;&#x0;&#x0;</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">incoming.telemetry.mozilla.org</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/submit/firefox-desktop/newtab/1/5185e1b1-6586-4972-8719-3541525da3cc</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="date" elementType="Header">
+                <stringProp name="Header.name">date</stringProp>
+                <stringProp name="Header.value">Mon, 06 Mar 2023 07:22:05 GMT</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="content-encoding" elementType="Header">
+                <stringProp name="Header.name">content-encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="x-telemetry-agent" elementType="Header">
+                <stringProp name="Header.name">x-telemetry-agent</stringProp>
+                <stringProp name="Header.value">Glean/51.8.2 (Rust on Windows)</stringProp>
+              </elementProp>
+              <elementProp name="content-type" elementType="Header">
+                <stringProp name="Header.name">content-type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/v4/threatListUpdates:fetch-30" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="$ct" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">$ct</stringProp>
+                <stringProp name="Argument.value">application/x-protobuf</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="key" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">key</stringProp>
+                <stringProp name="Argument.value">AIzaSyC7jsptDS3am4tPx4r3nxis7IMjBc5Dovo</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="$httpMethod" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">$httpMethod</stringProp>
+                <stringProp name="Argument.value">POST</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="$req" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">$req</stringProp>
+                <stringProp name="Argument.value">ChUKE25hdmNsaWVudC1hdXRvLWZmb3gaJwgFEAEaGwoNCAUQBhgBIgMwMDEwARC__w8aAhgE5NAyxSICIAIoARonCAEQARobCg0IARAGGAEiAzAwMTABEOjvCxoCGARe79tCIgIgAigBGicIAxABGhsKDQgDEAYYASIDMDAxMAEQ_-gLGgIYBC85_1YiAiACKAEaJwgHEAEaGwoNCAcQBhgBIgMwMDEwARCCxQwaAhgE_u5TmSICIAIoARolCAkQARoZCg0ICRAGGAEiAzAwMTABECAaAhgEc87nQiICIAIoAQ==</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">safebrowsing.googleapis.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/v4/threatListUpdates:fetch</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">no-cors</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">none</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="X-HTTP-Method-Override" elementType="Header">
+                <stringProp name="Header.name">X-HTTP-Method-Override</stringProp>
+                <stringProp name="Header.value">POST</stringProp>
+              </elementProp>
+              <elementProp name="Pragma" elementType="Header">
+                <stringProp name="Header.name">Pragma</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Cache-Control" elementType="Header">
+                <stringProp name="Header.name">Cache-Control</stringProp>
+                <stringProp name="Header.value">no-cache</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/prod/register-31" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">lxfsrxntnf.execute-api.us-east-1.amazonaws.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/prod/register</stringProp>
+          <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://localhost:3000/</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://localhost:3000</stringProp>
+              </elementProp>
+              <elementProp name="Access-Control-Request-Method" elementType="Header">
+                <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                <stringProp name="Header.value">POST</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Access-Control-Request-Headers" elementType="Header">
+                <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                <stringProp name="Header.value">content-type,x-api-key</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="reg/prod/register-32" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&quot;username&quot;:&quot;perfuser001&quot;,&quot;email&quot;:&quot;perfuser001@abc.com&quot;,&quot;name&quot;:&quot;perfuser001&quot;,&quot;password&quot;:&quot;perfuser001&quot;}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">lxfsrxntnf.execute-api.us-east-1.amazonaws.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/prod/register</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                <stringProp name="Header.value">cors</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">http://localhost:3000/</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Site" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                <stringProp name="Header.value">cross-site</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">http://localhost:3000</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="x-api-key" elementType="Header">
+                <stringProp name="Header.name">x-api-key</stringProp>
+                <stringProp name="Header.value">mzW9uosG9F1ZZ3uXEo9Vn5Yxxc9tTTo08UwzVecx</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json;charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0</stringProp>
+              </elementProp>
+              <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                <stringProp name="Header.value">empty</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
+        <stringProp name="ProxyControlGui.port">8888</stringProp>
+        <collectionProp name="ProxyControlGui.exclude_list">
+          <stringProp name="-2063843150">(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2)</stringProp>
+        </collectionProp>
+        <collectionProp name="ProxyControlGui.include_list"/>
+        <boolProp name="ProxyControlGui.capture_http_headers">true</boolProp>
+        <intProp name="ProxyControlGui.grouping_mode">0</intProp>
+        <boolProp name="ProxyControlGui.add_assertion">false</boolProp>
+        <stringProp name="ProxyControlGui.sampler_type_name"></stringProp>
+        <boolProp name="ProxyControlGui.sampler_redirect_automatically">false</boolProp>
+        <boolProp name="ProxyControlGui.sampler_follow_redirects">true</boolProp>
+        <boolProp name="ProxyControlGui.use_keepalive">true</boolProp>
+        <boolProp name="ProxyControlGui.detect_graphql_request">true</boolProp>
+        <boolProp name="ProxyControlGui.sampler_download_images">false</boolProp>
+        <intProp name="ProxyControlGui.proxy_http_sampler_naming_mode">0</intProp>
+        <stringProp name="ProxyControlGui.default_encoding"></stringProp>
+        <stringProp name="ProxyControlGui.proxy_prefix_http_sampler_name">reg</stringProp>
+        <stringProp name="ProxyControlGui.proxy_pause_http_sampler"></stringProp>
+        <boolProp name="ProxyControlGui.notify_child_sl_filtered">false</boolProp>
+        <boolProp name="ProxyControlGui.regex_match">false</boolProp>
+        <stringProp name="ProxyControlGui.content_type_include"></stringProp>
+        <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
+      </ProxyControl>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
