@@ -56,7 +56,7 @@ function App() {
         <NavLink activeClassName="active" to="/login">Login</NavLink>
         <NavLink activeClassName="active" to="/course">Course</NavLink>
         <NavLink activeClassName="active" to="/premium-content">Premium Content</NavLink>
-        <NavLink activeClassName="active" to="/Admin">Admin</NavLink>
+        <NavLink activeClassName="active" to="/Admin">Admin</NavLink> 
       </div>
       <div className="content">
         <Switch>

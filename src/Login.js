@@ -30,7 +30,13 @@ const Login = (props) => {
 
     axios.post(loginAPIUrl, requestBody, requestConfig).then((response) => {
       setUserSession(response.data.user, response.data.token);
-      props.history.push('/course');
+      if (response.data.user ==="darshan"){
+        props.history.push('/Admin');
+      }
+      else{
+        props.history.push('/course');
+      }
+      
     }).catch((error) => {
       if (error.response.status === 401 || error.response.status === 403) {
         setErrorMessage(error.response.data.message);
