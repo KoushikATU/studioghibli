@@ -30,12 +30,18 @@ const Login = (props) => {
 
     axios.post(loginAPIUrl, requestBody, requestConfig).then((response) => {
       setUserSession(response.data.user, response.data.token);
-      props.history.push('/premium-content');
+      if (response.data.user ==="darshan"){
+        props.history.push('/Admin');
+      }
+      else{
+        props.history.push('/course');
+      }
+      
     }).catch((error) => {
       if (error.response.status === 401 || error.response.status === 403) {
         setErrorMessage(error.response.data.message);
       } else {
-        setErrorMessage('sorry....the backend server is down. please try again later!!');
+        setErrorMessage('sorry....the backend server is down. please try again later!!po');
       }
     })
   }
@@ -46,12 +52,6 @@ const Login = (props) => {
         <h5>Login</h5>
         Username: <input type="text" value={username} onChange={event => setUsername(event.target.value)} /> <br/>
         Password: <input type="password" value={password} onChange={event => setPassword(event.target.value)} /> <br/>
-        Select Course:
-      <select id="course" name="course">
-        <option value="Moving Castle Creations">Moving Castle Creations</option>
-      </select> <br/>
-      Extra Requests:
-      <textarea id="requests" name="requests"></textarea> <br/>
         <input  type="submit" value="Login" /> <br/>
       </form>
       {errorMessage && <p className="message">{errorMessage}</p>}

@@ -3,6 +3,7 @@ import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
 import Admin from "./Admin";
+import Course from "./course";
 import PremiumContent from "./PremiumContent";
 import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
@@ -53,16 +54,18 @@ function App() {
         <NavLink exact activeClassName="active" to="/">Home</NavLink>
         <NavLink activeClassName="active" to="/register">Register</NavLink>
         <NavLink activeClassName="active" to="/login">Login</NavLink>
+        <NavLink activeClassName="active" to="/course">Course</NavLink>
         <NavLink activeClassName="active" to="/premium-content">Premium Content</NavLink>
-        <NavLink activeClassName="active" to="/Admin">Admin</NavLink>
+        <NavLink activeClassName="active" to="/Admin">Admin</NavLink> 
       </div>
       <div className="content">
         <Switch>
           <Route exact path="/" component={Home}/>
           <PublicRoute path="/register" component={Register}/>
           <PublicRoute path="/login" component={Login}/>
+          <PrivateRoute path="/course" component={Course}/> 
           <PrivateRoute path="/premium-content" component={PremiumContent}/>
-          <PublicRoute path="/Admin" component={Admin}/>
+          <PrivateRoute path="/Admin" component={Admin}/>
         </Switch>
       </div>
       </BrowserRouter>
