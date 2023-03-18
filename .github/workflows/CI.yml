@@ -3,7 +3,7 @@ name: CI PIPELINE
 on:
   push:
     branches:
-      - 'Feature_Aravind'
+      - feature/*
 
 jobs:
   build-and-test:
