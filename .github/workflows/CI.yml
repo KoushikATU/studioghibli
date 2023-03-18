@@ -19,8 +19,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build with Maven
-      run: 
-           cd GhiblisMovieTest
+      run:
            mvn -B package --file pom.xml
     - name: Test with TestNG
       run: mvn test --file pom.xml
