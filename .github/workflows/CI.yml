@@ -43,10 +43,10 @@ jobs:
       run: npm ci
       
     - name: Build React
-      run: npm run build
-
-    - name: Start React
-      run: npm run start  
+      run: |
+          npm build # Build the application
+          npm start & # Run the application in the background
+          sleep 5 # Wait for the application to start
 
     - name: Build and Test Maven
       run: |
