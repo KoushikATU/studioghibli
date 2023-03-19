@@ -1,8 +1,10 @@
 package ghiblisMovie;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -10,23 +12,38 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class RegistrationTest {
 
+	private ChromeOptions options = new ChromeOptions();
     private WebDriver driver;
     private String driverpath,CSVPath;
     private Random random = new Random();
 
     @BeforeMethod
     public void setUp() {
-        // Set up the web driver
-    	driverpath = System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverpath);
-        driver = new ChromeDriver();
+    	// Get the ChromeDriver executable path from the environment variable
+    	// driverpath = System.getenv("PATH");
+    	WebDriverManager.chromedriver().setup();
+    	options.setHeadless(true);
+    	options.addArguments("--no-sandbox");
+    	options.addArguments("--remote-allow-origins=*");
+    	options.addArguments("--disable-dev-shm-usage");
+        // Set up the web driver    	
+//    	driverpath = System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe";
+//        System.setProperty("webdriver.chrome.driver", driverpath);
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
+
+        driver.manage().window().maximize(); 
 
         // Navigate to the registration page
         driver.get("http://localhost:3000/register");
