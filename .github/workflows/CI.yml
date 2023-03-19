@@ -14,7 +14,17 @@ jobs:
       uses: actions/setup-node@v3.5.1
       with:
         node-version: 14.16.1
-
+    
+    - name: Install Chrome and ChromeDriver
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update && sudo apt-get install google-chrome-stable -y
+          LATEST_CHROMEDRIVER=$(wget -q -O - https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_CHROMEDRIVER/chromedriver_linux64.zip
+          sudo unzip -o /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+          
     - name: Checkout
       uses: actions/checkout@v2
     
@@ -35,10 +45,11 @@ jobs:
     - name: Build React
       run: npm run build
 
-    - name: Build with Maven
+    - name: Start React
+      run: npm run start  
+
+    - name: Build and Test Maven
       run: |
           cd GhiblisMovieTest
-          mvn clean test
-    - name: Test with TestNG
-      run: mvn test --file pom.xml
+          mvn test
 
