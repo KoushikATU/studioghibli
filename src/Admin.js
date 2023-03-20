@@ -6,13 +6,16 @@ function Admin() {
     useEffect(()=>{
     axios.get('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products')
         .then(res =>{
-            console.log(res.data)
+            console.log(res)
             setData(res?.data?.data)
         })
         .catch(err => {
             console.log(err)
         })
     },[])
+
+    
+
 
     return (
         <div>
@@ -31,6 +34,39 @@ function Admin() {
         {
         data.length > 0 &&
         data.map((item, index)=>{
+            
+            
+            
+            const Delete = () =>{
+                console.log(item.username);
+                
+                const deleteUsername = {
+                    "username": item.username,
+                    
+                    }
+                console.log(deleteUsername);
+
+                axios.post('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products',deleteUsername)
+                .then(res=>{
+                  console.log(res.data) 
+                })
+                .catch(
+                    err => {
+                        console.log(err)
+                    })
+
+                // )
+                // axios.get('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products')
+                // .then(res =>{
+                //  console.log(res)
+                // //setData(res?.data?.data)
+                //  })
+                //  .catch(err => {
+                // console.log(err)
+                //  })
+                
+        
+            }
           return (
             <tr>
                 <td>{item.name}</td>
@@ -40,9 +76,9 @@ function Admin() {
                 <td>none</td>
                 
                 <td>
-                    <button>Edit</button>
+                    <button >Edit</button>
 
-                    <button>Delete</button>
+                    <button onClick={Delete}>Delete</button>
                 </td>
                 
             </tr>
@@ -54,6 +90,7 @@ function Admin() {
        
         </div>
     )
+    
 }
 
 export default Admin;
