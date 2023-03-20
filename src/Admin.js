@@ -72,12 +72,10 @@ function Admin() {
                 <td>{item.name}</td>
                 <td>{item.username}</td>
                 <td>{item.email}</td>
-                <td>none</td>
-                <td>none</td>
+                <td>Moving Castle Creations</td>
+                <td></td>
                 
                 <td>
-                    <button >Edit</button>
-
                     <button onClick={Delete}>Delete</button>
                 </td>
                 
