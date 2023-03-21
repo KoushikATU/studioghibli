@@ -16,8 +16,8 @@ const PublicRoute = ({ component: Component, ...rest}) => {
     <Route 
       {...rest}
       render={props => {
-        return !getToken ()? <Component {...props} />
-        :routefunction();
+        return !getToken()? <Component {...props} />
+        :routefunction()
       //   : const routefunction= () =>{
       //     if( getToken()==="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhcnNoYW4iLCJuYW1lIjoiRGFyc2hhbiIsImlhdCI6MTY3OTQwMDg3MSwiZXhwIjoxNjc5NDA0NDcxfQ.aE7p0Nn9ciRBO72h86RllvfJx_fkhddXDpe0cWaeSj8") 
       //     { 
