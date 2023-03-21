@@ -1,13 +1,13 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { getToken } from '../service/AuthService';
+import { getUser } from '../service/AuthService';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   return (
     <Route 
       {...rest}
       render={props => {
-        return getToken() ? <Component {...props} />
+        return getUser().username  ? <Component {...props} />
         : <Redirect to={{ pathname: '/login'}} />
       }}
     />
