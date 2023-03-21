@@ -47,10 +47,12 @@ const Login = (props) => {
       setUserSession(response.data.user, response.data.token);
       
       // Redirect to different pages based on the user type
-      if (response.data.user ==="darshan"){
-        props.history.push('/Admin');
-      } else {
+      if (response.data.user.username !=="darshan"){
+        //console.log(response.data.user)
         props.history.push('/course');
+      } else if (response.data.user.username ==="darshan") {
+        console.log(response.data.user.username)
+        props.history.push('/Admin');
       }
     }).catch((error) => {
       // Set the error message based on the error response status code

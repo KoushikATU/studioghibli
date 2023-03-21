@@ -17,6 +17,7 @@ import { getUser, getToken, setUserSession, resetUserSession } from "./service/A
 // Import necessary modules from the "react" and "axios" libraries
 
 import axios from "axios";
+import AdminRoute from "./routes/AdminRoute";
 
 // URL of the API endpoint that checks the validity of an access token
 const verifyTokenAPIURL = 'https://lxfsrxntnf.execute-api.us-east-1.amazonaws.com/prod/verify'; //Api link to check token 
@@ -75,7 +76,7 @@ function App() {
           <PublicRoute path="/login" component={Login}/>
           <PrivateRoute path="/course" component={Course}/> 
           <PrivateRoute path="/premium-content" component={PremiumContent}/>
-          <PrivateRoute path="/Admin" component={Admin}/>
+          <AdminRoute path="/Admin" component={Admin}/>
         </Switch>
       </div>
       </BrowserRouter>

@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import { resetUserSession } from './service/AuthService';
 
-function Admin() {
+function Admin(props) {
     const [data, setData]= useState([])
 
     // useEffect is a React Hook that runs once on component load.
@@ -17,6 +18,13 @@ function Admin() {
             })
     },[])
 
+    
+    
+    const logoutHandler = () => {
+        resetUserSession();
+        props.history.push('login');
+      
+    } 
     // This displays the data in a table.
     return (
         <div>
@@ -37,6 +45,7 @@ function Admin() {
                         // This is a helper function to delete a specific product.
                         const Delete = () =>{
                             console.log(item.username);
+                            if(item.username!=="darshan"){
                             const deleteUsername = {
                                 "username": item.username,
                             }
@@ -51,6 +60,7 @@ function Admin() {
                                     console.log(err)
                                 })
                         }
+                            else(alert("You Cannot delete admin"))}
                         return (
                             <tr>
                                 <td>{item.name}</td>
@@ -66,6 +76,9 @@ function Admin() {
                     })
                 }
             </table>
+            <div>
+            <input type="button" value="Logout" onClick={logoutHandler} />
+            </div>
         </div>
     )    
 }

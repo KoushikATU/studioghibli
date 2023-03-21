@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <h2>This is the home page! </h2>
-      <img src={Logo}/>
+      <img src={Logo} alt="logo"/>
       
 
     </div>
