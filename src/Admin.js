@@ -1,19 +1,31 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import { resetUserSession } from './service/AuthService';
 
-function Admin() {
+function Admin(props) {
     const [data, setData]= useState([])
+
+    // useEffect is a React Hook that runs once on component load.
     useEffect(()=>{
-    axios.get('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products')
-        .then(res =>{
-            console.log(res.data)
-            setData(res?.data?.data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+        // This makes an API call to retrieve the products data.
+        axios.get('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products')
+            .then(res =>{
+                console.log(res)
+                setData(res?.data?.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
     },[])
 
+    
+    
+    const logoutHandler = () => {
+        resetUserSession();
+        props.history.push('login');
+      
+    } 
+    // This displays the data in a table.
     return (
         <div>
             Table of Data:
@@ -25,35 +37,50 @@ function Admin() {
                     <th>Course</th>
                     <th>Extra Requests</th>
                     <th>Actions</th>
-                   
-                    
                 </tr>
-        {
-        data.length > 0 &&
-        data.map((item, index)=>{
-          return (
-            <tr>
-                <td>{item.name}</td>
-                <td>{item.username}</td>
-                <td>{item.email}</td>
-                <td>none</td>
-                <td>none</td>
-                
-                <td>
-                    <button>Edit</button>
-
-                    <button>Delete</button>
-                </td>
-                
-            </tr>
-            
-          )
-        })
-      }
-        </table>
-       
+                {
+                    // This maps over the data retrieved from the API and displays it in the table.
+                    data.length > 0 &&
+                    data.map((item, index)=>{
+                        // This is a helper function to delete a specific product.
+                        const Delete = () =>{
+                            console.log(item.username);
+                            if(item.username!=="darshan"){
+                            const deleteUsername = {
+                                "username": item.username,
+                            }
+                            console.log(deleteUsername);
+                            // This makes an API call to delete the specified product.
+                            axios.post('https://jei9r6lp78.execute-api.us-east-1.amazonaws.com/prod/products',deleteUsername)
+                            .then(res=>{
+                              console.log(res.data) 
+                            })
+                            .catch(
+                                err => {
+                                    console.log(err)
+                                })
+                        }
+                            else(alert("You Cannot delete admin"))}
+                        return (
+                            <tr>
+                                <td>{item.name}</td>
+                                <td>{item.username}</td>
+                                <td>{item.email}</td>
+                                <td>Moving Castle Creations</td>
+                                <td></td>
+                                <td>
+                                    <button onClick={Delete}>Delete</button>
+                                </td>
+                            </tr>
+                        )
+                    })
+                }
+            </table>
+            <div>
+            <input type="button" value="Logout" onClick={logoutHandler} />
+            </div>
         </div>
-    )
+    )    
 }
 
 export default Admin;
