@@ -86,7 +86,7 @@ jobs:
       run: docker build -t ghiblismovie --force-rm .
       
     - name: Docker tag
-      run: docker tag ghiblismovie gourishbiju/ghiblismovie:latest
+      run: docker tag ghiblismovie L00170995/ghiblismovie:latest
       
     - name: Docker push
-      run: docker push gourishbiju/ghiblismovie
+      run: docker push L00170995/ghiblismovie
