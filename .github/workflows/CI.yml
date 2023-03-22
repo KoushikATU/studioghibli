@@ -56,7 +56,9 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    name: build and deploy react image 
+    name: build and deploy react image
+    needs: build-and-test
+    if: success()
     defaults:
       run:
         working-directory: .
