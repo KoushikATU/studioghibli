@@ -3,7 +3,7 @@ name: CI PIPELINE
 on:
   push:
     branches:
-      - 'L00170995_build'
+      - 'Feature_Aravind'
 
 jobs:
   build-and-test:
@@ -35,7 +35,6 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-<<<<<<< HEAD
 
     - name: List Files
       run: find .
@@ -53,11 +52,3 @@ jobs:
       run: |
           cd GhiblisMovieTest
           mvn test
-
-=======
-    - name: Build with Maven
-      run:
-           mvn -B package --file pom.xml
-    - name: Test with TestNG
-      run: mvn test --file pom.xml
->>>>>>> 71af0b6edad741e2bdb4eeac856cf4b98c03e203
