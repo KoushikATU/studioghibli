@@ -52,3 +52,41 @@ jobs:
       run: |
           cd GhiblisMovieTest
           mvn test
+    
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: build and deploy react image 
+    defaults:
+      run:
+        working-directory: .
+    
+    steps:
+    - name: setup Node.js environment
+      uses: actions/setup-node@v3.5.1
+      with:
+        node-version: 14.16.1
+        
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: List Files
+      run: find .
+      
+    - name: Install react package
+      run: npm ci
+      
+    - name: Build React
+      run: npm run build
+    
+    - name: Docker Login
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      
+    - name: Docker Build
+      run: docker build -t ghiblis:v1 --force-rm .
+      
+    - name: Docker tag
+      run: docker tag ghiblis:v1 gourishbiju/ghiblis:v1
+      
+    - name: Docker push
+      run: docker push gourishbiju/ghiblis:v1
