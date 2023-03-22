@@ -11,4 +11,21 @@
       <class name="ghiblisMovie.LoginTest"/>
     </classes>
   </test> <!-- Test -->
+  <test parallel="none" name="Test(failed)">
+    <classes>
+      <class name="ghiblisMovie.LoginTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testRegistration" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- ghiblisMovie.LoginTest -->
+      <class name="ghiblisMovie.RegistrationTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- ghiblisMovie.RegistrationTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

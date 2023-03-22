@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.757 sec - in TestSuite
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.955 sec <<< FAILURE! - in TestSuite
+testRegistration(ghiblisMovie.LoginTest)  Time elapsed: 4.862 sec  <<< FAILURE!
+java.lang.AssertionError: The word 'You have been loggined in!!!! Choose the course !!!' is not present in the page source. expected [true] but found [false]
+	at ghiblisMovie.LoginTest.testRegistration(LoginTest.java:68)
+
