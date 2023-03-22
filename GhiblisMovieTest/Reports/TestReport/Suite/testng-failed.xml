@@ -9,6 +9,7 @@
     <classes>
       <class name="ghiblisMovie.RegistrationTest"/>
       <class name="ghiblisMovie.LoginTest"/>
+      <class name="ghiblisMovie.AdminTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Failed suite [Suite] -->

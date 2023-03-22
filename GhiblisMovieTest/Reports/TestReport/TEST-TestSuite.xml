@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="17.052" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="37.594" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -25,7 +25,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 11"/>
-    <property name="classworlds.conf" value="C:\Users\Kani\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6536656355126504709.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Kani\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4251598044231636880.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-17.0.5\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kani\AppData\Local\Microsoft\WindowsApps;C:\Users\Kani\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-17.0.5\bin;C:\Maven\apache-maven-3.8.6-bin\apache-maven-3.8.6\bin;C:\Users\Kani\Downloads\chromedriver_win32;C:\Users\Kani\AppData\Roaming\npm;."/>
     <property name="jdk.debug" value="release"/>
@@ -58,6 +58,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testRegistration" classname="ghiblisMovie.RegistrationTest" time="7.156"/>
-  <testcase name="testRegistration" classname="ghiblisMovie.LoginTest" time="3.996"/>
+  <testcase name="testRegistration" classname="ghiblisMovie.RegistrationTest" time="9.307"/>
+  <testcase name="testRegistration" classname="ghiblisMovie.LoginTest" time="4.705"/>
+  <testcase name="testRegistration" classname="ghiblisMovie.AdminTest" time="16.314"/>
 </testsuite>
