@@ -32,8 +32,8 @@ public class AdminTest {
     public void setUp() {
     	try {
         	WebDriverManager.chromedriver().setup();
-//        	options.setHeadless(true);
-//        	options.addArguments("--no-sandbox");
+        	options.setHeadless(true);
+        	options.addArguments("--no-sandbox");
         	options.addArguments("--remote-allow-origins=*");
         	options.addArguments("--disable-dev-shm-usage");
             // Set up the web driver    	

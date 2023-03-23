@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="3" passed="3" failed="0" skipped="0">
+<testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-22T22:34:48Z" name="Suite" finished-at="2023-03-22T22:35:25Z" duration-ms="36995">
+  <suite started-at="2023-03-23T12:24:04Z" name="Suite" finished-at="2023-03-23T12:24:26Z" duration-ms="21532">
     <groups>
     </groups>
-    <test started-at="2023-03-22T22:34:48Z" name="Test" finished-at="2023-03-22T22:35:25Z" duration-ms="36995">
+    <test started-at="2023-03-23T12:24:04Z" name="Test" finished-at="2023-03-23T12:24:26Z" duration-ms="21532">
       <class name="ghiblisMovie.RegistrationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:ghiblisMovie.RegistrationTest@7880cdf3]" started-at="2023-03-22T22:34:48Z" name="setUp" finished-at="2023-03-22T22:34:51Z" duration-ms="2639" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:ghiblisMovie.RegistrationTest@4386f16]" started-at="2023-03-23T12:24:04Z" name="setUp" finished-at="2023-03-23T12:24:08Z" duration-ms="3755" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testRegistration(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ghiblisMovie.RegistrationTest@7880cdf3]" started-at="2023-03-22T22:34:51Z" name="testRegistration" data-provider="registrationData" finished-at="2023-03-22T22:35:00Z" duration-ms="9297" status="PASS">
+        <test-method signature="testRegistration(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ghiblisMovie.RegistrationTest@4386f16]" started-at="2023-03-23T12:24:08Z" name="testRegistration" data-provider="registrationData" finished-at="2023-03-23T12:24:26Z" duration-ms="17569" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,68 +37,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testRegistration -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:ghiblisMovie.RegistrationTest@7880cdf3]" started-at="2023-03-22T22:35:00Z" name="tearDown" finished-at="2023-03-22T22:35:01Z" duration-ms="205" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:ghiblisMovie.RegistrationTest@4386f16]" started-at="2023-03-23T12:24:26Z" name="tearDown" finished-at="2023-03-23T12:24:26Z" duration-ms="161" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- ghiblisMovie.RegistrationTest -->
-      <class name="ghiblisMovie.AdminTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:ghiblisMovie.AdminTest@1c93084c]" started-at="2023-03-22T22:35:07Z" name="setUp" finished-at="2023-03-22T22:35:09Z" duration-ms="1738" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="testRegistration(java.lang.String, java.lang.String)[pri:0, instance:ghiblisMovie.AdminTest@1c93084c]" started-at="2023-03-22T22:35:09Z" name="testRegistration" data-provider="adminData" finished-at="2023-03-22T22:35:25Z" duration-ms="16314" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[darshan]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Darshan]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistration -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:ghiblisMovie.AdminTest@1c93084c]" started-at="2023-03-22T22:35:25Z" name="tearDown" finished-at="2023-03-22T22:35:25Z" duration-ms="239" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- ghiblisMovie.AdminTest -->
-      <class name="ghiblisMovie.LoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:ghiblisMovie.LoginTest@5be6e01c]" started-at="2023-03-22T22:35:01Z" name="setUp" finished-at="2023-03-22T22:35:02Z" duration-ms="1576" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="testRegistration(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ghiblisMovie.LoginTest@5be6e01c]" started-at="2023-03-22T22:35:02Z" name="testRegistration" data-provider="loginData" finished-at="2023-03-22T22:35:07Z" duration-ms="4706" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Test1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test1]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[123]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistration -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:ghiblisMovie.LoginTest@5be6e01c]" started-at="2023-03-22T22:35:07Z" name="tearDown" finished-at="2023-03-22T22:35:07Z" duration-ms="252" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- ghiblisMovie.LoginTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

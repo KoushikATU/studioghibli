@@ -34,8 +34,8 @@ public class LoginTest {
         	// Get the ChromeDriver executable path from the environment variable
         	// driverpath = System.getenv("PATH");
         	WebDriverManager.chromedriver().setup();
-//        	options.setHeadless(true);
-//        	options.addArguments("--no-sandbox");
+        	options.setHeadless(true);
+        	options.addArguments("--no-sandbox");
         	options.addArguments("--remote-allow-origins=*");
         	options.addArguments("--disable-dev-shm-usage");
             // Set up the web driver    	

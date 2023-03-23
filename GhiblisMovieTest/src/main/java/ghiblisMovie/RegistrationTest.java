@@ -34,8 +34,8 @@ public class RegistrationTest {
     		// Get the ChromeDriver executable path from the environment variable
         	// driverpath = System.getenv("PATH");
         	WebDriverManager.chromedriver().setup();
-//        	options.setHeadless(true);
-//        	options.addArguments("--no-sandbox");
+        	options.setHeadless(true);
+        	options.addArguments("--no-sandbox");
         	options.addArguments("--remote-allow-origins=*");
         	options.addArguments("--disable-dev-shm-usage");
             driver = new ChromeDriver(options);
@@ -90,7 +90,7 @@ public class RegistrationTest {
     @DataProvider(name = "registrationData")
     public Object[][] registrationData() throws IOException, CsvException {
         // Read the data from the CSV file
-    	CSVPath = System.getProperty("user.dir")+"\\src\\main\\resources\\Registration_TestData.csv";
+    	CSVPath = System.getProperty("user.dir")+"/src/main/resources/Registration_TestData.csv";
         CSVReader reader = new CSVReader(new FileReader(CSVPath));
         List<String[]> data = reader.readAll();
 
