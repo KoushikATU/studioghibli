@@ -10,4 +10,15 @@
       <class name="ghiblisMovie.RegistrationTest"/>
     </classes>
   </test> <!-- Test -->
+  <test name="Test(failed)">
+    <classes>
+      <class name="ghiblisMovie.RegistrationTest">
+        <methods>
+          <include name="testRegistration" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- ghiblisMovie.RegistrationTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

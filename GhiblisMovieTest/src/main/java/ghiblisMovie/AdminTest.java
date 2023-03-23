@@ -148,7 +148,7 @@ public class AdminTest {
     @DataProvider(name = "adminData")
     public Object[][] adminData() throws IOException, CsvException {
         // Read the data from the CSV file
-    	CSVPath = System.getProperty("user.dir")+"\\src\\main\\resources\\Admin_TestData.csv";
+    	CSVPath = System.getProperty("user.dir")+"/src/main/resources/Admin_TestData.csv";
         CSVReader reader = new CSVReader(new FileReader(CSVPath));
         List<String[]> data = reader.readAll();
 

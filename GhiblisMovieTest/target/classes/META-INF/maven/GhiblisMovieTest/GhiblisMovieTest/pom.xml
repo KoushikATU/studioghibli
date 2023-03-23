@@ -96,7 +96,7 @@
 						</suiteXmlFiles>
 						<!--<reportsDirectory>${project.basedir}/Reports/TestReport_${timestamp}</reportsDirectory>-->
 						<reportsDirectory>${project.basedir}/Reports/TestReport</reportsDirectory>
-						<testFailureIgnore>true</testFailureIgnore>
+						<testFailureIgnore>false</testFailureIgnore>
 					</configuration>
 				</plugin>
 			</plugins>
