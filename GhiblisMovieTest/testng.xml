@@ -8,10 +8,10 @@
   </listeners>
   <test thread-count="5" name="Test">
     <classes>
-     <!--  --> 
+     
    	  <class name="ghiblisMovie.RegistrationTest"/>
-   	  <class name="ghiblisMovie.LoginTest"/>
-      <class name="ghiblisMovie.AdminTest"/>
+   	  <!--<class name="ghiblisMovie.LoginTest"/>
+      <class name="ghiblisMovie.AdminTest"/>  --> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

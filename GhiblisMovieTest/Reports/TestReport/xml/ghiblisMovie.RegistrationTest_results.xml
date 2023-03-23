@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="9.297">
+           time="17.569">
   <properties />
   
   
-            <testcase name="testRegistration" time="9.297" classname="ghiblisMovie.RegistrationTest" />
+            <testcase name="testRegistration" time="17.569" classname="ghiblisMovie.RegistrationTest" />
       
 </testsuite>
