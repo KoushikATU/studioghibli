@@ -46,7 +46,7 @@ jobs:
       run: |
           npm build # Build the application
           npm start & # Run the application in the background
-          sleep 30 # Wait for the application to start
+          sleep 10 # Wait for the application to start
 
     - name: Build and Test Maven
       run: |
