@@ -3,7 +3,7 @@ name: CI PIPELINE
 on:
   push:
     branches:
-      - 'L00170995_build'
+      - main
 
 jobs:
   build-and-test:
