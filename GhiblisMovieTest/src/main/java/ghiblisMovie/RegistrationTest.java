@@ -30,23 +30,26 @@ public class RegistrationTest {
 
     @BeforeMethod
     public void setUp() {
-    	// Get the ChromeDriver executable path from the environment variable
-    	// driverpath = System.getenv("PATH");
-    	WebDriverManager.chromedriver().setup();
-    	options.setHeadless(true);
-    	options.addArguments("--no-sandbox");
-    	options.addArguments("--remote-allow-origins=*");
-    	options.addArguments("--disable-dev-shm-usage");
-        // Set up the web driver    	
-//    	driverpath = System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe";
-//        System.setProperty("webdriver.chrome.driver", driverpath);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
+    	try {
+    		// Get the ChromeDriver executable path from the environment variable
+        	// driverpath = System.getenv("PATH");
+        	WebDriverManager.chromedriver().setup();
+//        	options.setHeadless(true);
+//        	options.addArguments("--no-sandbox");
+        	options.addArguments("--remote-allow-origins=*");
+        	options.addArguments("--disable-dev-shm-usage");
+            driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
 
-        driver.manage().window().maximize(); 
+            driver.manage().window().maximize(); 
 
-        // Navigate to the registration page
-        driver.get("http://localhost:3000/register");
+            // Navigate to the registration page
+            driver.get("http://localhost:3000/register");
+    	}
+    	catch (Exception e) {
+    	    System.out.println("Exception occurred: " + e.getMessage());
+    	}
+    	
     }
 
     @Test(dataProvider = "registrationData")
@@ -74,8 +77,8 @@ public class RegistrationTest {
         String actualResult = driver.findElement(By.cssSelector(".message")).getText();
         System.out.println("actualResult: "+actualResult);
         Thread.sleep(random.nextInt(1000) + 500);
-        Assert.assertEquals(actualResult, "username already exists in our database, please choose a different username");
-        //Registeration Successful
+        //Assert.assertEquals(actualResult, "username already exists in our database, please choose a different username");
+        Assert.assertEquals(actualResult, "Registeration Successful");
     }
 
     @AfterMethod
@@ -87,7 +90,7 @@ public class RegistrationTest {
     @DataProvider(name = "registrationData")
     public Object[][] registrationData() throws IOException, CsvException {
         // Read the data from the CSV file
-    	CSVPath = System.getProperty("user.dir")+"\\src\\main\\resources\\TestData.csv";
+    	CSVPath = System.getProperty("user.dir")+"\\src\\main\\resources\\Registration_TestData.csv";
         CSVReader reader = new CSVReader(new FileReader(CSVPath));
         List<String[]> data = reader.readAll();
 

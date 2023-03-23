@@ -29,22 +29,28 @@ public class LoginTest {
 
     @BeforeMethod
     public void setUp() {
-    	// Get the ChromeDriver executable path from the environment variable
-    	// driverpath = System.getenv("PATH");
-    	WebDriverManager.chromedriver().setup();
-    	options.setHeadless(true);
-    	options.addArguments("--no-sandbox");
-    	options.addArguments("--remote-allow-origins=*");
-    	options.addArguments("--disable-dev-shm-usage");
-        // Set up the web driver    	
-//    	driverpath = System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe";
-//        System.setProperty("webdriver.chrome.driver", driverpath);
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
+    	try {
 
-        driver.manage().window().maximize(); 
-        // Navigate to the login page
-        driver.get("http://localhost:3000/login");
+        	// Get the ChromeDriver executable path from the environment variable
+        	// driverpath = System.getenv("PATH");
+        	WebDriverManager.chromedriver().setup();
+//        	options.setHeadless(true);
+//        	options.addArguments("--no-sandbox");
+        	options.addArguments("--remote-allow-origins=*");
+        	options.addArguments("--disable-dev-shm-usage");
+            // Set up the web driver    	
+//        	driverpath = System.getProperty("user.dir")+"\\src\\main\\resources\\chromedriver.exe";
+//            System.setProperty("webdriver.chrome.driver", driverpath);
+            driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
+
+            driver.manage().window().maximize(); 
+            // Navigate to the login page
+            driver.get("http://localhost:3000/login");
+    	}
+    	catch (Exception e) {
+    	    System.out.println("Exception occurred: " + e.getMessage());
+    	}
     }
 
     @Test(dataProvider = "loginData")
