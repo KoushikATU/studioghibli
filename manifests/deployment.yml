@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "studioghibli-dea6"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "studioghibli-dea6"
+  template:
+    metadata:
+      labels:
+        app: "studioghibli-dea6"
+    spec:
+      containers:
+        - name: "studioghibli-dea6"
+          image: "studioghibil.azurecr.io/studioghibli"
+          ports:
+          - containerPort: 3000
