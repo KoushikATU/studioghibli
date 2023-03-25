@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "studioghiblis-14e9"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "studioghiblis-14e9"
+  template:
+    metadata:
+      labels:
+        app: "studioghiblis-14e9"
+    spec:
+      containers:
+        - name: "studioghiblis-14e9"
+          image: "studioghibil.azurecr.io/studioghiblis"
+          ports:
+          - containerPort: 3000
