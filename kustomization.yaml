@@ -1,0 +1,12 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: OCIRepository
+metadata:
+  name: kyverno
+  namespace: flux-system
+spec:
+  interval: 60m
+  url: https://github.com/L00163331/studioghibli/kustomization.yaml
+  ref: # pull the latest patch release evey hour
+    semver: 1.8.x
+  verify: # enable Cosign keyless verification
+    provider: cosign
