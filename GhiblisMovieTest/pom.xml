@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>GhiblisMovieTest</groupId>
+  <artifactId>GhiblisMovieTest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>GhiblisMovieTest</name>
+  <properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+     <timestamp>${maven.build.timestamp}</timestamp>
+     <maven.build.timestamp.format>yyyy-MM-dd_HH-mm</maven.build.timestamp.format>
+     <sureFireDir>${project.basedir}/target/${timestamp}</sureFireDir>
+  </properties>
+  <dependencies>
+  	<dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.0.1-jre</version>
+    </dependency>
+	<dependency>
+	    <groupId>com.google.inject</groupId>
+	    <artifactId>guice</artifactId>
+	    <version>4.2.0</version>
+	</dependency>
+  	<dependency>
+  		<groupId>org.seleniumhq.selenium</groupId>
+  		<artifactId>selenium-java</artifactId>
+  		<version>4.5.3</version>
+  	</dependency>
+  	
+  	<dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.0.3</version>
+    </dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.github.lambdatest/lambdatest-tunnel-binary -->
+     <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>6.9.10</version>
+        <!-- <scope>test</scope>--> 
+        <scope>compile</scope>
+     </dependency>
+     <!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+	<dependency>
+	    <groupId>org.uncommons</groupId>
+	    <artifactId>reportng</artifactId>
+	    <version>1.1.4</version>
+	    <scope>test</scope>
+	</dependency>
+
+	
+	<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+	<dependency>
+	    <groupId>com.opencsv</groupId>
+	    <artifactId>opencsv</artifactId>
+	    <version>5.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.12.0</version>
+	</dependency>
+
+
+  </dependencies>
+  <build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<encoding>iso-8859-1</encoding>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.19.1</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>testng.xml</suiteXmlFile>
+						</suiteXmlFiles>
+						<!--<reportsDirectory>${project.basedir}/Reports/TestReport_${timestamp}</reportsDirectory>-->
+						<reportsDirectory>${project.basedir}/Reports/TestReport</reportsDirectory>
+						<testFailureIgnore>false</testFailureIgnore>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

@@ -34,3 +34,42 @@ code {
   font-size: 0.7em;
 
 }
+
+
+table {
+width: 100%;
+border-collapse: collapse;
+text-align: left;
+}
+
+th, td {
+border: 1px solid black;
+padding: 10px;
+}
+
+th {
+background-color: lightgray;
+}
+
+button {
+background-color: lightblue;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+}
+
+
+form {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  text-align: left;
+}
+
+label, input, select, textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
