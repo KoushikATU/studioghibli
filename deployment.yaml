@@ -13,8 +13,8 @@ spec:
         app: api
     spec:
       containers:
-      - name: api
-        image: koushikhathwar/group1
+      - name: studioghibli
+        image: studioghibil.azurecr.io/ghiblis:v1
         resources:
           requests:
             cpu: 100m
@@ -50,8 +50,8 @@ spec:
         app: website
     spec:
       containers:
-      - name: website
-        image: koushikhathwar/group1
+      - name: studioghiblis
+        image: studioghibil.azurecr.io/ghiblis:v1
         resources:
           requests:
             cpu: 100m
